@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Graficos en 2D - (canvas)</title>
+</head>
+<body>
+	<h1>Graficos en 2D - (canvas)</h1>
+	<hr>
+	<h3>Cuadrado:</h3>
+	<canvas id="cuadrado"></canvas>
+	<h3>Circulo:</h3>
+	<canvas id="circulo"></canvas>
+	<h3>Triangulo:</h3>
+	<canvas id="triangulo"></canvas>
+	<h3>Texto:</h3>
+	<canvas id="texto"></canvas>
+	<h3>Estrella:</h3>
+	<canvas id="estrella"></canvas>
+
+	<script>
+	var cuadrado = document.getElementById('cuadrado');
+	var cnvs = cuadrado.getContext('2d');
+	cnvs.fillStyle = '#128517';
+	cnvs.fillRect(20,20,100,100);
+    </script>
+
+    <script> 
+	var Circulo = document.getElementById('circulo');
+	var cxt = circulo.getContext('2d');
+
+    cxt.fillStyle="#00f";
+    cxt.beginPath();
+    cxt.arc(60,60,50,0,Math.PI*2,true);
+    cxt.closePath();
+    cxt.fill();
+    </script>
+
+    <script>
+    var Triangulo = document.getElementById('triangulo');
+	var cxt = triangulo.getContext('2d');
+
+    cxt.beginPath();
+    cxt.fillStyle="#C012C0";
+    cxt.strokeStyle="#0F14F4";
+    cxt.moveTo(65,10);
+    cxt.lineTo(140,140);
+    cxt.lineTo(10,140);
+    cxt.closePath();
+    cxt.stroke();
+    cxt.fill();
+    </script>
+    
+    <script>
+    var Texto = document.getElementById('texto');
+	var cxt = texto.getContext('2d');
+
+    cxt.textofont="20pt verdana";
+    cxt.fillStyle = '#9ED288';
+	cxt.fillRect(20,20,300,300);
+	cxt.fillStyle="#300149"; 
+	cxt.fillText("Hola Mundo",130,90);
+	</script>
+
+	<script>
+	var Estrella = document.getElementById('estrella');
+	var cxt = estrella.getContext('2d');
+
+    cxt.beginPath();
+    cxt.moveTo((100/PP)+dif,(20/PP)+dif);//1
+    cxt.lineTo((118/PP)+dif,(73/PP)+dif);//2
+    cxt.lineTo((175/PP)+dif,73/PP+dif);//3
+    cxt.lineTo((132/PP)+dif,110/PP+dif);//4
+    cxt.lineTo((149/PP)+dif,164/PP+dif);//5
+    cxt.lineTo((100/PP)+dif,132/PP+dif);//6
+    cxt.lineTo((52/PP)+dif,164/PP+dif);//7
+    cxt.lineTo((69/PP)+dif,110/PP+dif);//8
+    cxt.lineTo((25/PP)+dif,73/PP+dif);//9
+    cxt.lineTo((81/PP)+dif,73/PP+dif);//10
+    cxt.closePath();
+	</script>
+</body>
+</html>
