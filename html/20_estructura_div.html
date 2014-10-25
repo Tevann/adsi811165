@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Estructura(div)</title>
+	<style>
+	    body {
+	       background-color:#0D20CA;
+	       font: 16px sans-serif;
+	      }
+	   div#contenedor {
+           border: 10px solid #1CEAD6;
+           background-color:#0080FF;
+           color:#CE2D31;
+           margin: 0px auto;
+           padding: 20px;
+           width: 800px;
+	   }
+	   div.encabezado, 
+       div.contenido,
+       div.pie {
+	   	   background-color: #62aafd;
+	   	   color: #FFFFFF;
+	   	   font-size: 2em;
+	   	   font-family: 'Oswald', sans-serif;
+	   	   text-align: center;
+	   	   }
+	    div.encabezado { height: 120px; } 
+        div.contenido  { height: 380px; }
+        div.pie        { height: 60px; }
+	</style>
+</head>
+<body>
+<div id="contenedor">
+	<div class="encabezado">
+		<h2>Encabezado</h2>
+	</div>
+	<div class="contenido">
+		<h2>Contenido</h2> 
+	</div>
+	<div class="pie">
+		<h2>pie</h2>
+		<hr>
+	</div>
+</div>
+	
+</body>
+</html>
