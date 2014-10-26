@@ -63,21 +63,22 @@
 	</script>
 
 	<script>
-	var Estrella = document.getElementById('estrella');
-	var cxt = estrella.getContext('2d');
+	  var Estrella = document.getElementById('estrella');
+	  var ctx = estrella.getContext('2d');
 
-    cxt.beginPath();
-    cxt.moveTo((100/PP)+dif,(20/PP)+dif);//1
-    cxt.lineTo((118/PP)+dif,(73/PP)+dif);//2
-    cxt.lineTo((175/PP)+dif,73/PP+dif);//3
-    cxt.lineTo((132/PP)+dif,110/PP+dif);//4
-    cxt.lineTo((149/PP)+dif,164/PP+dif);//5
-    cxt.lineTo((100/PP)+dif,132/PP+dif);//6
-    cxt.lineTo((52/PP)+dif,164/PP+dif);//7
-    cxt.lineTo((69/PP)+dif,110/PP+dif);//8
-    cxt.lineTo((25/PP)+dif,73/PP+dif);//9
-    cxt.lineTo((81/PP)+dif,73/PP+dif);//10
-    cxt.closePath();
-	</script>
+        ctx.beginPath();
+        ctx.strokeStyle = "#FF8000";
+        ctx.lineWidth = "5"
+        ctx.moveTo(50, 27.5);
+        ctx.lineTo(12.5, 27.5);
+        ctx.lineTo(75, 77.5);
+        ctx.lineTo(50, 2.5);
+        ctx.lineTo(25, 77.5);
+        ctx.lineTo(87.5, 27.5);
+        ctx.lineTo(25, 27.5);
+        ctx.stroke();
+        ctx.fillStyle = "#0000FF";
+        ctx.fill();
+     </script>
 </body>
 </html>
