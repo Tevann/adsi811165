@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Elementos de Entrada (html 5)</title>
+</head>
+<body>
+<h1>Elementos de Entrada (html 5)</h1>
+	<input list="lenguajes">
+	<datalist id="lenguajes">
+		<option value="python">Python</option>
+		<option value="ruby">Ruby</option>
+		<option value="Java">Java</option>
+		<option value="C#">C#</option>
+	</datalist>
+	<h2>Generador</h2>
+	<keygen name="generador">
+	<h2>salida</h2>
+	<input type="text" id="nombre" oninput="salida.value=this.value">
+	<output id="salida" for="nombre"></output>
+</body>
+</html>
