@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posicionamiento Absoluto Css</title>
+	<style>
+	section.cajacontenedora {
+		border: 2px solid navy;
+		padding: 10px;
+		width: 500px;
+	}
+	.uno {
+		float: left;
+	}
+	article {
+		border: 2px solid navy;
+		display: inline-block;
+		height: 80px;
+		line-height: 5em;
+		margin-bottom: 4px;
+		text-align: center;
+		width: 160px;
+	}
+	.caja4 {
+		width: 496px;
+	}
+	.absoluto {
+		background-color: navy;
+		position: absolute;
+		left: 340px;
+		top: 500px;
+		color: white;
+	}
+	</style>
+</head>
+<body>
+	<h1>Posicionamiento Absoluto Css</h1>
+	<hr>
+	<h2>Posicionamiento Normal</h2>
+	<section class="cajacontenedora">
+		<article class="caja1">Caja 1</article>
+		<article class="caja2">Caja 2</article>
+		<article class="caja3">Caja 3</article>
+		<article class="caja4">Caja 4</article>
+	</section>
+	<h2>Posicionamiento Absoluto</h2>
+
+	<hr>
+	<section class="cajacontenedora">
+		<article class="caja1">Caja 1</article>
+		<article class="caja2 absoluto">Caja 2</article>
+		<article class="caja3">Caja 3</article>
+		<article class="caja4">Caja 4</article>
+	</section>
+</body>
+</html>

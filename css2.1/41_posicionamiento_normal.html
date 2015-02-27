@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posicionamiento Normal (Estático) CSS</title>
+	<style>
+		section.cajapadre {
+			border: 2px solid navy;
+			width: 400px;
+			padding: 10px;
+			background-color: green;
+		}
+		article.cajahija {
+			border: 2px solid navy;
+			margin-bottom: 10px;
+			height: 80px;
+			padding: 10px;
+			background-color: navy;
+		}
+		a {
+			border: 2px solid navy;
+			text-decoration: none;
+			color: white;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<h1>Posicionamiento Normal (Estático) CSS</h1>
+	<hr>
+	<h2>Posicionamiento Normal (Elementos de bloque)</h2>
+	<section class="cajapadre">
+		<article class="cajahija"></article>
+		<article class="cajahija"></article>
+		<article class="cajahija"></article>
+	</section>
+	<h2>Posicionamiento Normal (Elementos de Linea)</h2>
+	<section class="cajapadre">
+		<artcle class="cajahija">
+			<a href="http://wwww.google.com">www.google.com</a>
+			<a href="http://wwww.google.com">www.google.com</a>
+			<a href="http://wwww.google.com">www.google.com</a>
+		</artcle>
+	</section>
+</body>
+</html>
