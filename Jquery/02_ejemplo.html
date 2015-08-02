@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ejemplo Basico de Jquery</title>
+	<style>
+		body{ font-family: Tahoma; }
+		ul#bicis{
+			list-style: none;
+		}
+		ul#bicis li{
+			background-color: #F2731E;
+			border: 2px solid #E65B1E;
+			color: white;
+			padding: 10px;
+			margin: 4px;
+			width: 200px;
+
+			-webkit-transition: 0.2s all;
+					transition: 0.2s all;
+		}
+		ul#bicis li:hover{
+			background-color: #F8A920;
+			cursor: pointer;
+			width: 250px;
+
+		}
+	</style>
+</head>
+<body>
+	<h1>Ejemplo Basico de Jquery</h1>
+	<hr>
+	<ul id="bicis">
+		<li>Santa Cruz</li>
+		<li>Trek</li>
+		<li>Yeti</li>
+		<li>Specialized</li>
+		<li>Scott</li>
+		<li>Cannondale</li>
+		<li>Gt</li>
+		<li>Pivot</li>
+	</ul>
+	<p>Click en la marca para eliminar</p>
+	<button id="eli">Eliminar Todo</button>
+	<button id="add">Agregar</button>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		$('li').click(function(){
+			$(this).fadeOut(2000);
+		});
+
+		$('button#eli').click(function(){
+			$('li').fadeOut(2000);
+		});
+		$('button#add').click(function(){
+			$('li').fadeIn(2000);
+		});
+	});
+	</script>
+</body>
+</html>

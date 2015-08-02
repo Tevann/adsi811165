@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos (desde javascript) JS</title>
+	<style>
+		h1#texto {
+			background-color: red;
+			color: #fff;
+			height: 150px;
+			line-height: 5em;
+			padding: 20px;
+			text-align: center;
+			width: 200px;
+		}
+	</style>
+</head>
+<body id="cuerpo">
+	<h1>Eventos (desde javascript) JS</h1>
+	<hr>
+	<input type="text" id="campo">
+	<output id="salida"></output>
+	<button id="limpiar">Limpiar</button>
+	
+	<h1 id="texto">OFF</h1>
+
+	<script>
+		var cuerpo   = document.getElementById('cuerpo');
+		var campo    = document.getElementById('campo');
+		var texto    = document.getElementById('texto');
+		var limpiar  = document.getElementById('limpiar');
+		var salida;
+		
+		campo.onkeyup = function() {
+			campo  = document.getElementById('campo').value;
+			salida = document.getElementById('salida');
+
+			salida.value = campo+" -> "+campo.length+" carácteres.";
+		}
+		limpiar.onclick = function() {
+			document.getElementById('campo').value = "";
+			salida.innerHTML = "";
+		}
+		cuerpo.onload = function() {
+			alert("Bienvenidos\nPágina de Evento en JS");
+		}
+		texto.onmouseover = function() {
+			texto.innerHTML = "ON";
+			texto.style.backgroundColor = 'green';
+		}
+		texto.onmouseout = function() {
+			texto.innerHTML = "OFF";
+			texto.style.backgroundColor = 'red';
+		}
+	</script>
+</body>
+</html>

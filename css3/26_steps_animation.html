@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reloj Análogo (Steps)</title>
+	<style>
+		section#reloj {
+		  background-color: #ddd;
+		  border: 10px solid #999;
+		  height: 400px;
+		  margin: 20px auto;
+		  position: relative;
+		  width: 400px;
+		  border-radius: 50%;
+		}
+		article#segundos {
+		  background-color: #e45341;
+		  height: 4px;
+		  position: absolute;
+		  top: 50%;
+		  width: 50%;
+		  
+		  -webkit-transform-origin: 100% 50%; 
+		  -webkit-animation: rotarSegundos 60s steps(60) infinite;
+		}
+
+		@-webkit-keyframes rotarSegundos{
+		  0%   { -webkit-transform: rotate(90deg); }
+		  100% { -webkit-transform: rotate(450deg); }
+		}
+	</style>
+</head>
+<body>
+	<section id="reloj">
+		<article id="segundos"></article>
+	</section>
+</body>
+</html>

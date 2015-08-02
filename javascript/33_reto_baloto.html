@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Juego Baloto ADSI</title>
+	<style>
+		html { font-size: 62.5%; }
+		body {
+			background-color: #213a6f;
+			font: 1.4rem sans-serif;
+		}
+		fieldset {
+			background-color: #fff;
+			border: 10px solid #213a6f;
+			-webkit-border-radius: 20px;
+			        border-radius: 20px;
+			margin: 40px auto;
+			padding: 10px;
+			width: 960px;
+		}
+		h2 {
+			color: #213a6f;
+			font-size: 6rem;
+			padding: 10px 20px;
+			width: 600px;
+			text-align: center;
+			margin: 40px auto;
+		}
+		div.balota {
+			background: -webkit-linear-gradient(top, #f60002, #7f0103);
+			background:         linear-gradient(top, #f60002, #7f0103);
+			border: none;
+			-webkit-border-radius: 70px;
+			        border-radius: 70px;
+			-webkit-box-shadow: 2px 6px 10px #000; 
+			        box-shadow: 2px 6px 10px #000;    
+			color: #e7c144;  
+			font-size: 6rem;  
+			display: inline-block;
+			margin-right: 20px;
+			height: 140px;
+			line-height: 140px;
+			position: relative;
+			text-align: center;
+			top: 0px;
+			width: 140px;
+		}
+		div.balota:last-of-type {
+			margin-right: 0px;
+		}
+		button {
+			background: -webkit-linear-gradient(top, #26631c, #1b4914);
+			background:         linear-gradient(top, #26631c, #1b4914);
+			border: none;
+			-webkit-border-radius: 70px;
+			        border-radius: 70px;
+			-webkit-box-shadow: 2px 2px 10px #000; 
+			        box-shadow: 2px 2px 10px #000;         
+			display: block;
+			color: #fff;
+			font-size: 4rem;
+			margin: 60px auto;
+			padding: 20px;
+			vertical-align: top;
+			width: 300px;
+		}
+		button:hover {
+			cursor: pointer;
+			background: -webkit-linear-gradient(top, #14380f, #26631c);
+			background:         linear-gradient(top, #14380f, #26631c);
+		}
+
+	</style>
+</head>
+<body>
+	<fieldset>
+		<h2>Juego Baloto ADSI</h2>
+		<div class="balota" id="b1"></div>
+		<div class="balota" id="b2"></div>
+		<div class="balota" id="b3"></div>
+		<div class="balota" id="b4"></div>
+		<div class="balota" id="b5"></div>
+		<div class="balota" id="b6"></div>
+		<br>
+		<button id="jugar">JUGAR</button>
+	</fieldset>
+}
+</body>
+</html>

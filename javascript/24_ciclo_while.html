@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ciclo (while) JS</title>
+	<style>
+		html { font-size: 62.5%; }
+		body { font: 1.6rem Tahoma; }
+	</style>
+</head>
+<body>
+	<h1>Ciclo (while) JS</h1>
+	<hr>
+	<fieldset>
+		<legend><h5>Mostrar Números Impares</h5></legend>
+		<input type="number" id="num" min="0" max="100">
+		<button id="most">Mostrar</button>
+	</fieldset>
+	<section id="cont"></section>
+	<script>
+		var most = document.getElementById('most');
+		var cont = document.getElementById('cont');
+
+		most.onclick = function() {
+			var num = Number(document.getElementById('num').value);
+			var i   = 1;
+			cont.innerHTML = "";
+			if(num == 0) {
+				alert('Por favor, ingrese un número..');
+			} else {
+				while (i <= num) {
+					if(i % 2 != 0) {
+						cont.innerHTML += " { "+i+" } ";
+					}
+					i++;
+				}
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nuevos Selectores CSS</title>
+	<style>
+		/* 01 ---------------------- */
+		p~ul {
+			background-color: PaleGreen;
+		}
+		/* 02 ---------------------- */
+		a[href^='https'] {
+			background-color: RoyalBlue;
+		}
+		/* 03 ---------------------- */
+		a[href$='.pdf'] {
+			border: 2px solid SandyBrown;
+		}
+		/* 04 ---------------------- */
+		a[href*='.google'] {
+			background-color: Salmon;
+		}
+		/* 05 ---------------------- */
+		li.ej5:first-of-type {
+			background-color: SkyBlue;
+		}
+		/* 06 ---------------------- */
+		li.ej6:last-of-type {
+			background-color: SkyBlue;
+		}
+		/* 07 ---------------------- */
+		p.ej7:only-of-type {
+			background-color: SkyBlue;
+		}
+		/* 08 ---------------------- */
+		p.ej8:only-child {
+			background-color: SkyBlue;
+		}
+		/* 09 ---------------------- */
+		p.ej9:nth-child(2) {
+			background-color: Orchid;
+		}
+		/* 10 ---------------------- */
+		p.ej10:nth-last-child(2) {
+			background-color: RebeccaPurple;
+		}
+		/* 11 ---------------------- */
+		p.ej11:nth-of-type(3) {
+			background-color: PowderBlue;
+		}
+		/* 12 ---------------------- */
+		p.ej12:nth-last-of-type(3) {
+			background-color: PowderBlue;
+		}
+		/* 13 ---------------------- */
+		p.ej13:first-child {
+			background-color: YellowGreen;
+		}
+		/* 14 ---------------------- */
+		p.ej14:last-child {
+			background-color: YellowGreen;
+		}
+		/* 15 ---------------------- */
+		:root {
+			background: -webkit-linear-gradient(left, #fff, #999);
+			background:         linear-gradient(left, #fff, #999);
+		}
+		/* 16 ---------------------- */
+		p.ej16:empty {
+			border: 4px solid Tomato;
+		}
+		/* 17 ---------------------- */
+		#inicio:target {
+			background-color: Peru;
+		}
+		#noticias:target {
+			background-color: Peru;
+		}
+		#contacto:target {
+			background-color: Peru;
+		}
+		/* 18 ---------------------- */
+		input.ej18:enabled {
+			border: 4px solid Tomato;
+		}
+		/* 19 ---------------------- */
+		input.ej19:disabled {
+			border: 4px solid MidnightBlue;
+		}
+		/* 20 ---------------------- */
+		input.ej20 {
+			background-color: MediumVioletRed;
+			height: 20px;
+			-webkit-appearance: none;
+	           -moz-appearance: none;
+	                appearence: none;
+	        width: 20px;
+		}
+		input.ej20:checked {
+			background-color: MidnightBlue;
+		}
+		/* 21 ---------------------- */
+		section.ej21 > :not(p) {
+			background-color: navy;
+			color: white;
+		}
+		/* 22 ---------------------- */
+		::selection {
+			background: none;
+		}
+		p.amarillo ::selection {
+			background: yellow;
+		}
+		p.azul ::selection {
+			background: blue;
+			color: white;
+		}
+		p.rojo ::selection {
+			background: red;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<h1>Nuevos Selectores CSS</h1>
+	<hr>
+	<!-- 01 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p~ul</h2></legend>
+		<p>
+			<ul>
+				<li>Elemento 1</li>
+				<li>Elemento 2</li>
+			</ul>
+		</p>
+		<ul>
+			<li>Elemento 1</li>
+			<li>Elemento 2</li>
+		</ul>
+	</fieldset>
+	<!-- 02 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>a[href^='https']</h2></legend>
+		<a href="http://google.com">Ir a Google</a> | 
+		<a href="https://senasofiaplus.edu.co">Ir a Sofia</a> | 
+		<a href="http://yahoo.com">Ir a Yahoo</a>
+	</fieldset>
+	<!-- 03 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>a[href$='.pdf']</h2></legend>
+		<p>
+			<nav>
+				<li><a href="libros/css3.docx">Libro CSS 3</a></li>
+				<li><a href="libros/js.pdf">Libro JS</a></li>
+				<li><a href="libros/html5.xlsx">Libro HTML 5</a></li>
+			</nav>
+		</p>
+	</fieldset>
+	<!-- 04 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>a[href*='google']</h2></legend>
+		<p>
+			<nav>
+				<li><a href="http://maps.google.com">Mapas de Google</a></li>
+				<li><a href="http://mail.google.com">Correo de Google</a></li>
+				<li><a href="http://yahoo.com">Correo de Yahoo</a></li>
+			</nav>
+		</p>
+	</fieldset>
+	<!-- 05 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>li.ej5:first-of-type</h2></legend>
+			<li class="ej5">Disco Duro</li>
+			<li class="ej5">Memoria RAM</li>
+			<li class="ej5">Tarjeta Madre</li>
+			<li class="ej5">Unidad de DVD</li>
+	</fieldset>
+	<!-- 06 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>li.ej6:last-of-type</h2></legend>
+			<li class="ej6">Disco Duro</li>
+			<li class="ej6">Memoria RAM</li>
+			<li class="ej6">Tarjeta Madre</li>
+			<li class="ej6">Unidad de DVD</li>
+	</fieldset>
+	<!-- 07 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej7:only-of-type</h2></legend>
+			<p class="ej7">Lorem Ipsum Dolor 1</p>
+			<!-- <p class="ej7">Lorem Ipsum Dolor 2</p> -->
+	</fieldset>
+	<!-- 08 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej8:only-child</h2></legend>
+			<section>
+				<p class="ej8">Lorem Ipsum Dolor 1</p>
+			</section>
+	</fieldset>
+	<!-- 09 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej9:nth-child(2)</h2></legend>
+			<section>
+				<p class="ej9">Lorem Ipsum Dolor 1</p>
+				<p class="ej9">Lorem Ipsum Dolor 2</p>
+				<p class="ej9">Lorem Ipsum Dolor 3</p>
+			</section>
+	</fieldset>
+	<!-- 10 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej10:nth-last-child(2)</h2></legend>
+			<section>
+				<p class="ej10">Lorem Ipsum Dolor 1</p>
+				<p class="ej10">Lorem Ipsum Dolor 2</p>
+				<p class="ej10">Lorem Ipsum Dolor 3</p>
+				<p class="ej10">Lorem Ipsum Dolor 4</p>
+			</section>
+	</fieldset>
+	<!-- 11 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej11:nth-of-type(3)</h2></legend>
+			<section>
+				<p class="ej11">Lorem Ipsum Dolor 1</p>
+				<p class="ej11">Lorem Ipsum Dolor 2</p>
+				<p class="ej11">Lorem Ipsum Dolor 3</p>
+				<p class="ej11">Lorem Ipsum Dolor 4</p>
+			</section>
+	</fieldset>
+	<!-- 12 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej12:nth-last-of-type(3)</h2></legend>
+			<section>
+				<p class="ej12">Lorem Ipsum Dolor 1</p>
+				<p class="ej12">Lorem Ipsum Dolor 2</p>
+				<p class="ej12">Lorem Ipsum Dolor 3</p>
+				<p class="ej12">Lorem Ipsum Dolor 4</p>
+			</section>
+	</fieldset>
+	<!-- 13 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej13:first-child</h2></legend>
+			<section>
+				<p class="ej13">Lorem Ipsum Dolor 1</p>
+				<p class="ej13">Lorem Ipsum Dolor 2</p>
+				<p class="ej13">Lorem Ipsum Dolor 3</p>
+				<p class="ej13">Lorem Ipsum Dolor 4</p>
+			</section>
+	</fieldset>
+	<!-- 14 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p.ej14:last-child</h2></legend>
+			<section>
+				<p class="ej14">Lorem Ipsum Dolor 1</p>
+				<p class="ej14">Lorem Ipsum Dolor 2</p>
+				<p class="ej14">Lorem Ipsum Dolor 3</p>
+				<p class="ej14">Lorem Ipsum Dolor 4</p>
+			</section>
+	</fieldset>
+	<!-- 15 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>:root</h2></legend>
+		<h1>Ver el fondo del documento</h1>
+	</fieldset>
+	<!-- 16 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>p:empty</h2></legend>
+			<section>
+				<p class="ej16">Lorem Ipsum Dolor 1</p>
+				<p class="ej16"></p>
+				<p class="ej16">Lorem Ipsum Dolor 3</p>
+				<p class="ej16">Lorem Ipsum Dolor 4</p>
+			</section>
+	</fieldset>
+	<!-- 17 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>#inicio:target</h2></legend>
+		<a href="#inicio">Inicio</a>
+		<a href="#noticias">Noticias</a>
+		<a href="#contacto">Contacto</a>
+		<section id="inicio">
+			<header><h1>Inicio</h1></header>
+			<article>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, perspiciatis tenetur pariatur quod illo at officia suscipit quae libero voluptatibus hic laborum nulla laboriosam deleniti repellendus non cum facilis facere?
+			</article>
+		</section>
+		<section id="noticias">
+			<header><h1>Noticias</h1></header>
+			<article>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, perspiciatis tenetur pariatur quod illo at officia suscipit quae libero voluptatibus hic laborum nulla laboriosam deleniti repellendus non cum facilis facere?
+			</article>
+		</section>
+		<section id="contacto">
+			<header><h1>Contacto</h1></header>
+			<article>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, perspiciatis tenetur pariatur quod illo at officia suscipit quae libero voluptatibus hic laborum nulla laboriosam deleniti repellendus non cum facilis facere?
+			</article>
+		</section>
+	</fieldset>
+	<!-- 18 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>input:enabled</h2></legend>
+		<input class="ej18" type="text" name="campo1">
+		<input class="ej18" type="text" name="campo2" disabled="disabled">
+	</fieldset>
+	<!-- 19 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>input:disabled</h2></legend>
+		<input class="ej19" type="text" name="campo1">
+		<input class="ej19" type="text" name="campo2" disabled="disabled">
+	</fieldset>
+	<!-- 20 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>input:checked</h2></legend>
+		<label>
+			Futbol
+			<input class="ej20" type="checkbox" value="Futbol" checked="checked">
+		</label>
+		<label>
+			Baloncesto
+			<input class="ej20" type="checkbox" value="Baloncesto">
+		</label>
+		<label>
+			Ciclismo
+			<input  class="ej20" type="checkbox" value="Ciclismo">
+		</label>
+	</fieldset>
+	<!-- 21 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>:not(p)</h2></legend>
+			<section class="ej21">
+				<p>Lorem Ipsum Dolor 1</p>
+				<div>Siiiiiiiii</div>
+				<p>Lorem Ipsum Dolor 3</p>
+				<p>Lorem Ipsum Dolor 4</p>
+			</section>
+	</fieldset>
+	<!-- 22 |||||||||||||||||||||||||||||||||||||||||||| -->
+	<fieldset>
+		<legend><h2>::selection</h2></legend>
+			<p class="amarillo">
+		<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, cupiditate, impedit fugit fuga veritatis illo blanditiis deserunt vel reprehenderit mollitia tempore iste laborum cumque a ducimus alias totam repellat provident.</span>
+		<span>Similique, repellendus, velit nisi sunt magnam cumque id odio nemo adipisci nostrum blanditiis atque ex minus tenetur consectetur dolore molestiae voluptatum dolores aliquam et. Consequatur molestiae nesciunt necessitatibus nihil quidem.</span>
+		<span>Corrupti, possimus, minima, sequi, consectetur nulla voluptate eum quam mollitia error tenetur deserunt aliquam laudantium voluptatibus architecto molestias adipisci sapiente autem rem. Consequuntur, excepturi voluptates saepe modi autem. Quod, magni.</span>
+		<span>Minus, earum, iure repudiandae eos dolor sed illum distinctio praesentium dignissimos animi a id consectetur deleniti quos mollitia! Quam, quos quidem ab fugit praesentium mollitia repudiandae veniam et. Deleniti, sunt.</span>
+	</p>
+	<p class="azul">
+		<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, dolore labore quisquam quasi atque suscipit error cum a! Id, provident sequi tempore ipsam perspiciatis error facilis voluptatum nemo veniam asperiores.</span>
+		<span>Quae, voluptas, placeat, debitis, deleniti mollitia sapiente enim eos quam id inventore quod maxime earum omnis temporibus eum veniam cupiditate qui suscipit vel quis. Nobis, asperiores distinctio vero iure nostrum.</span>
+		<span>Corporis, assumenda, excepturi, similique quasi blanditiis id animi reiciendis quisquam dolorem saepe laborum eaque deleniti consectetur labore atque ducimus minus cupiditate temporibus. Totam, rerum nulla possimus illo necessitatibus! Placeat, reprehenderit.</span>
+		<span>Sapiente, similique, repudiandae, facilis aliquid perferendis nam voluptatibus deleniti sit accusantium possimus tenetur pariatur odit obcaecati distinctio amet sequi perspiciatis officia! Minima, aspernatur velit officia tempore accusamus neque maiores doloremque.</span>
+	</p>
+	<p class="rojo">
+		<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, laudantium iure hic ea rem autem cumque dolorum a vel ratione excepturi animi ad quidem temporibus provident labore accusantium neque vero?</span>
+		<span>Temporibus, porro, voluptates, laborum mollitia neque nihil laboriosam aliquam in consequatur doloremque iure aliquid iste ratione veritatis optio possimus illo fugiat repudiandae. Voluptates, dolore numquam possimus saepe nihil ducimus nulla!</span>
+		<span>Voluptas, modi, quis, magni quisquam possimus perspiciatis ad velit esse facere qui expedita accusamus sint nobis quibusdam incidunt accusantium laborum laudantium porro ut itaque. Facilis neque deserunt ex nisi repudiandae!</span>
+		<span>Aspernatur, impedit, adipisci, ad laborum sapiente nihil natus voluptas fuga cum repellendus culpa minima omnis nobis suscipit totam qui eligendi inventore architecto repudiandae cupiditate eum nesciunt consectetur facere repellat accusantium.</span>
+	</p>
+	</fieldset>
+	<!-- |||||||||||||||||||||||||||||||||||||||||||| -->
+</body>
+</html>

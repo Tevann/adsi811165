@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pregutar JS</title>
+</head>
+<body>
+	<h1>Pregutar JS</h1>
+	<hr>
+	<h3 id="mensaje"></h3>
+	<script>
+
+	var respuesta = prompt('Es usted Hombre');
+	var mjs = document.getElementById('mensaje');
+		
+
+	if(respuesta == 'si'){
+		mjs.innerHTML = "No lo Eres! Mentirosa Sucia!";
+	}else{
+		mjs.innerHTML = "Segura que lo Eres?";
+	}
+	</script>
+</body>
+</html>

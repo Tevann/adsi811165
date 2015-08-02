@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Efectos (slideDown, slideUp, slideToggle) jQuery</title>
+	<style>
+		body{
+			font: 1.2em Tahoma;
+			background-color: #A940F3;
+		}
+		article#texto{
+			border: 1px dashed #480477;
+			margin: 20px auto;
+			padding: 20px;
+			width: 500px;
+			background-color: #A566B3;
+		}
+		h1{ 
+			color: white; 
+			text-align: center; 
+			-webkit-text-shadow: 2px 2px 4px #000; 
+					text-shadow: 2px 2px 4px #000; 
+		}
+		article#controles{
+			margin: 0px auto;
+			width: 350px;
+		}
+		button{
+			border: 1px solid #480477;
+			background-color: #7632E7;
+			color: white;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Efectos (slideDown, slideUp, slideToggle) jQuery</h1>
+	<hr>
+	<article id="texto">
+		<h1>Lorem Ipsum Dolor Sit Amet</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aliquid ratione dicta consequuntur fugiat commodi libero quo, illo rem voluptatem animi quod cumque alias modi dolorem, veritatis asperiores vero atque?</p>
+	</article>
+	<article id="controles">
+		<button id="btnSlideUp">Desplazar Arriba</button>
+		<button id="btnSlideDown">Desplazar Abajo</button>
+		<button id="btnSlideToggle">Arriba/Abajo</button>
+	</article>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$txt = $('#texto');
+		// Deslizar Abajo ---------------------
+		$('#controles').on('click', '#btnSlideDown', function(event) {
+			event.preventDefault();
+			$txt.slideDown('slow');
+		 });
+		// Deslizar Arriba ---------------------
+		$('#controles').on('click', '#btnSlideUp', function(event) {
+			event.preventDefault();
+			$txt.slideUp('fast')();
+		});
+		// Deslizar Arriba/Abajo ---------------------
+		$('#controles').on('click', '#btnSlideToggle', function(event) {
+			event.preventDefault();
+			$txt.slideToggle(2000);
+		});
+	});
+	</script>
+</body>
+</html>

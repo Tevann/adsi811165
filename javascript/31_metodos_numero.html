@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Métodos de Números JS</title>
+	<style>
+		fieldset {
+			background-color: #ddd;
+			margin: 100px auto;
+			width: 600px;
+		}
+		output { 
+			color: green; 
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<fieldset>
+		<legend><h3>Métodos de Números JS</h3></legend>
+		<strong>Número:</strong>
+		<input type="number" id="num1">
+		<strong>- - - - - - - - - - - - - - - - - - - > Cadena:</strong>
+		<output id="cadena"></output>
+		<br>
+		<strong>Número:</strong>
+		<input type="number" id="num2">
+		<strong>Reparar:</strong>
+		<input type="number" id="rep" min="0" max="9">
+		<strong>- - - - - - - > Reparado:</strong>
+		<output id="reparar"></output>
+		<br>
+		<strong>Número:</strong>
+		<input type="number" id="num3">
+		<strong>Precisión:</strong>
+		<input type="number" id="pre" min="0" max="9">
+		<strong>- - - > Con Precisión:</strong>
+		<output id="precision"></output>
+		<br>
+		<strong>Número Cadena:</strong>
+		<input type="text" id="cad1">
+		<strong>- - - - - - - - - - - - - > Entero:</strong>
+		<output id="entero"></output>
+		<br>
+		<strong>Número Cadena:</strong>
+		<input type="text" id="cad2">
+		<strong>- - - - - - - - - - - - > Flotante:</strong>
+		<output id="flotante"></output>
+		<br>
+		<button id="calcular">Calcular</button>
+	</fieldset>
+
+	<script>
+		var cadena    = document.getElementById('cadena');
+		var reparar   = document.getElementById('reparar');
+		var precision = document.getElementById('precision');
+		var entero    = document.getElementById('entero');
+		var flotante  = document.getElementById('flotante');
+		var calcular  = document.getElementById('calcular');
+
+		calcular.onclick = function() {
+			var num1 = parseInt(document.getElementById('num1').value);
+			var num2 = parseFloat(document.getElementById('num2').value);
+			var num3 = parseFloat(document.getElementById('num3').value);
+			var rep  = parseInt(document.getElementById('rep').value);
+			var pre  = parseInt(document.getElementById('pre').value);
+			var cad1 = document.getElementById('cad1').value;
+			var cad2 = document.getElementById('cad2').value;
+
+			cadena.innerHTML    = "'"+num1.toString()+"'";
+			reparar.innerHTML   = num2.toFixed(rep);
+			precision.innerHTML = num3.toPrecision(pre);
+			entero.innerHTML    = parseInt(cad1);
+			flotante.innerHTML  = parseFloat(cad2);
+		}
+	</script>
+</body>
+</html>

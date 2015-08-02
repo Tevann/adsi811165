@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transition CSS 3</title>
+	<style>
+		section#inter {
+			background: transparent url(imgs/inter.png) no-repeat;
+			height: 300px;
+			margin: 50px auto;
+			width: 300px;
+
+			-webkit-transition: all 0.8s;
+			        transition: all 0.8s;
+
+			-webkit-transform: scale(0.4) rotate(0deg);
+			        transform: scale(0.4) rotate(0deg);
+		}
+		section#inter:hover {
+			-webkit-transform: scale(1.5) rotate(360deg);
+			        transform: scale(1.5) rotate(360deg);
+		}
+	</style>
+</head>
+<body>
+	<section id="inter"></section>
+</body>
+</html>

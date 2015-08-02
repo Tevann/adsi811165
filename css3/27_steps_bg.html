@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Steps (background) CSS3 </title>
+	<style>
+		section#animacion {
+			height: 200px;
+			position: relative;
+			margin: 50px auto;
+			width: 200px;
+			-webkit-animation: animCharacter 3s ease-in-out infinite;
+		}
+		article#steps {
+			background: #fff url(imgs/steps.png) no-repeat left center;
+			height: 200px;
+			position: relative;
+			width: 200px;
+			-webkit-animation: animSteps 2s steps(6) infinite;
+
+		}
+		section#steps2 {
+			background: #fff url(imgs/steps2.png) no-repeat left center;
+			height: 50px;
+			position: relative;
+			margin: 50px auto;
+			width: 50px;
+			-webkit-transform: scale(2.5);
+			-webkit-animation: animSteps2 1s steps(20) infinite;
+
+		}
+		@-webkit-keyframes animSteps {
+			100% { background-position: -1200px; }
+		}
+		@-webkit-keyframes animCharacter {
+			0%, 100% { -webkit-transform: scale(1); }
+			50%      { -webkit-transform: scale(1.1); }
+
+		}
+		@-webkit-keyframes animSteps2 {
+			100% { background-position: -1000px; }
+		}
+	</style>
+</head>
+<body>
+	<section id="animacion">
+		<article id="steps"></article>
+	</section>
+	<br>	
+	<section id="steps2"></section>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Efectos (fadeIn, fadeOut, fadeToggle) jQuery</title>
+	<style>
+		body{
+			font: 1.2em Tahoma;
+			background-color: #A940F3;
+		}
+		article#texto{
+			border: 1px dashed #480477;
+			margin: 20px auto;
+			padding: 20px;
+			width: 500px;
+			background-color: #A566B3;
+		}
+		h1{ 
+			color: white; 
+			text-align: center; 
+			-webkit-text-shadow: 2px 2px 4px #000; 
+					text-shadow: 2px 2px 4px #000; 
+		}
+		article#controles{
+			margin: 0px auto;
+			width: 560px;
+		}
+		input,
+		button{
+			border: 1px solid #480477;
+			background-color: #7632E7;
+			color: white;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Efectos (fadeIn, fadeOut, fadeToggle) jQuery</h1>
+	<hr>
+	<article id="texto">
+		<h1>Lorem Ipsum Dolor Sit Amet</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aliquid ratione dicta consequuntur fugiat commodi libero quo, illo rem voluptatem animi quod cumque alias modi dolorem, veritatis asperiores vero atque?</p>
+	</article>
+	<article id="controles">
+		<button id="btnFadeIn">Aparecer</button>
+		<button id="btnFadeOut">Desvanecer</button>
+		<button id="btnFadeToggle">Aparecer/Desvanecer</button>
+		<input type="number" min="0" max="999">
+		<button id="btnFadeTo">Desvanecer Hasta</button>
+	</article>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$txt = $('#texto');
+		// Aparecer ---------------------
+		$('#controles').on('click', '#btnFadeIn', function(event) {
+			event.preventDefault();
+			$txt.fadeIn('slow');
+		 });
+		// Desvanecer ---------------------
+		$('#controles').on('click', '#btnFadeOut', function(event) {
+			event.preventDefault();
+			$txt.fadeOut('fast');
+		});
+		// Aparecer / Desvanecer ---------------------
+		$('#controles').on('click', '#btnFadeToggle', function(event) {
+			event.preventDefault();
+			$txt.fadeToggle(2000);
+		});
+		// Desvanecer Hasta ------------------------
+		$('#controles').on('click', '#btnFadeTo', function(event) {
+			event.preventDefault();
+			$num = parseFloat($('input').val());
+			$txt.fadeTo(2000, $num);
+		});
+	});
+	</script>
+</body>
+</html>

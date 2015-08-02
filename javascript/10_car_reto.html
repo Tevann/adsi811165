@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Objetos (Atributos, Metodos) JS</title>
+  <style>
+      section#vhcl {
+          color: #fff;
+          height: 100px;
+          line-height: 100px;
+          position: relative;
+          text-align: center;
+          width: 300px;
+      }
+  </style>
+</head>
+<body id="cuerpo">
+  <section id="vhcl"></section>
+  <button id="iniciar">Iniciar</button>
+  <button id="detener">Detener</button>
+  <script>
+      var iniciar   = document.getElementById('iniciar');
+      var detener   = document.getElementById('detener');
+      var vhcl      = document.getElementById('vhcl');
+      var cuerpo    = document.getElementById('cuerpo');
+      var posv      = 0;
+      var intervalo;
+
+      detener.style.display = 'none';
+
+      var vehiculo = {
+        marca:      'Volkswagen',
+        referencia: 'Gol',
+        color:      'black',
+        construir: function() {
+          vhcl.style.backgroundColor = this.color;
+          vhcl.innerHTML = this.marca+" - "+this.referencia;
+        },
+        iniciar: function() {
+          iniciar.style.display = 'none';
+          detener.style.display = 'inline';
+
+          intervalo = setInterval(function() {
+            posv += 10;
+            vhcl.style.left = posv+'px';
+          }, 200);
+        },
+        detener: function() {
+          iniciar.style.display = 'inline';
+          detener.style.display = 'none';
+
+          clearInterval(intervalo);
+        }
+      };
+
+      vehiculo.construir();
+
+      iniciar.onclick = function() {
+        vehiculo.iniciar();
+      }
+      detener.onclick = function() {
+        vehiculo.detener();
+      }
+      cuerpo.onkeyup = function(e) {
+        var tecla = e.keyCode;
+        if(tecla == 37) {
+          vehiculo.detener();
+        }
+        if(tecla == 39) {
+          vehiculo.iniciar();
+        }
+        console.log(tecla);
+      }
+  </script>
+</body>
+</html>

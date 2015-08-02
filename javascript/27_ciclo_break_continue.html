@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ciclos (break & continue) JS</title>
+</head>
+<body>
+	<h1>Ciclos (break & continue) JS</h1>
+	<hr>
+	<ul id="lista"></ul>
+
+	<script>
+		var lista = document.getElementById('lista');
+		var i     = 1;
+		while(i <= 200) {
+			lista.innerHTML += "<li>Elemento #"+i+"</li>";
+			if(i == 100) {
+				break;
+			}
+			i++;
+		}
+	</script>
+</body>
+</html>

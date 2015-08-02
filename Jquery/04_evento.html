@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos jQuery</title>
+</head>
+<body>
+	<h1>Eventos jQuery</h1>
+	<hr>
+<h3>Estos son eventos de un boton</h3>
+<button>Boton</button>
+<output id="o1"></output>
+<br>
+<h3>Estos de un campo de texto</h3>
+<input type="text">
+<output id="o2"></output>
+<br>
+<h3>Estos de Formulario</h3>
+<select name="">
+	<option value="Colombia">Colombia</option>
+	<option value="Ecuador">Ecuador</option>
+	<option value="Venezuela">Venezuela</option>
+</select>
+<output id="o3"></output>
+<br>
+<h3>Eventos de Documentos/Ventanas</h3>
+<a href="javascript:;">Cargar Menú</a>
+<output id="o4"></output>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('button').click(function(){
+			$('output#o1').text('Usted preciono el boton');
+		});
+		$('button').dblclick(function() {
+			$('output#o1').text('Usted preciono el boton dos veces');
+		});
+		$('button').mouseenter(function() {
+			$('output#o1').text('Usted esta dentro del boton');
+		});
+		$('button').mouseleave(function() {
+			$('output#o1').text('Usted esta fuera del boton');
+		});
+		$('input').keyup(function() {
+			$('output#o2').text('Usted solto una tecla');
+		});
+		$('input').keydown(function() {
+			$('output#o2').text('Usted dejo la tecla precionada');
+		});
+		$('input').keypress(function() {
+			$('output#o2').text('Usted preciono una tecla');
+		});
+		$('input').focus(function() {
+			$('output#o2').text('Usted enfoco el campo');
+		});
+		$('input').blur(function() {
+			$('output#o2').text('Usted desenfoco el campo');
+		});
+		$('select').change(function() {
+			$('output#o3').text('El valor del select ha cambiado a: '+$(this).val());
+		});
+		$('a').click(function() {
+			$('output#o4').load('menu.html');
+		});
+		$(window).unload(function() {
+			alert('Usted recargo la pagina');
+		});
+		$(window).resize(function() {
+			$('output#o4').text('Usted cambio el tamaño de la ventana');
+		});
+		$(document).scroll(function() {
+			$('output#o4').text('Usted hizo scroll');
+		});
+	});
+	</script>
+</body>
+</html>

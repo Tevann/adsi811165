@@ -1,0 +1,126 @@
+section#sky{
+	background: transparent url(../img/sky.png) no-repeat center center;
+	height: 662px;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 960px;
+	position: relative;
+	box-shadow: 0px 0px  15px black;
+	opacity: 0.4;
+}
+button#gplay {
+	border: none;
+	background-color: #1E90FF;
+	color: #fff;
+	font: 1.4em Tahoma;
+	display: block;
+	margin: 0px auto;
+	position: relative;
+	padding: 10px;
+	text-transform: uppercase;
+	top: -340px;
+	width: 200px;
+	-webkit-transition: all 0.5s;
+			transition: all 0.5s;
+}
+button#gplay:hover {
+	background-color: #87CEEB;
+	color: #fff;
+	cursor: pointer;
+	-webkit-animation: 0.2s btnPlay ease-in-out infinite;
+			animation: 0.2s btnPlay ease-in-out infinite;
+}
+
+div#hero {
+	background: transparent url(../img/hero.png) no-repeat center center;
+	height: 70px;
+	position: relative;
+	left: 450px;
+	top: 590px;
+	width: 70px;
+	border: 1px solid red;
+	-webkit-transition: all 0.1s;
+
+/*		-webkit-animation: 1s Hero ease-in-out infinite;
+				animation: 1s Hero ease-in-out infinite;*/
+}
+
+div#pl6, 
+div#pl5,
+div#pl4,
+div#pl3,
+div#pl2,
+div#pl1{
+	width: 154px;
+	height: 72px;
+	position: relative;
+	top: 295px;
+	left: -154px;
+	border: 1px solid red;
+}
+div#pl4,
+div#pl5,
+div#pl6 {
+	top: -215px;
+	-webkit-transform: rotateY(180deg);
+			transform: rotateY(180deg);
+}
+
+
+div.plane1 {
+	background: transparent url(../img/plane1.png) no-repeat center center;
+}
+div.plane2 {
+	background: transparent url(../img/plane2.png) no-repeat center center;
+}
+div.plane3 {
+	background: transparent url(../img/plane3.png) no-repeat center center;
+}
+div.plane4 {
+	background: transparent url(../img/plane4.png) no-repeat center center;
+}
+div.plane5 {
+	background: transparent url(../img/plane5.png) no-repeat center center;
+}
+
+ul#lifetime{
+	width: 164px;
+	height: 48px;
+	position: relative;
+	top: -490px;
+	padding: 0px;
+	margin: 0px;
+	left: 780px;
+}
+ul#lifetime li{
+	background: transparent url(../img/rayo.png) no-repeat center;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	display: inline-block;
+	height: 48px;
+	width: 52px;
+}
+
+div#time{
+	position: relative;
+	top: -520px;
+	left: 20px;
+	font-family: tahoma;
+	font-size: 1.4rem;
+	color: black;
+}
+
+@-webkit-keyframes btnPlay {
+	0%, 100% {
+		-webkit-transform: scale(1) rotate(0deg);
+	}
+	50% {
+		-webkit-transform: scale(1.2) rotate(-5deg);
+	}
+}
+
+@-webkit-keyframes Hero {
+	0%,100%{ top: 560px;}
+	50%{ top: 565px; }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Intervalos de Tiempo (setInterval) JS</title>
+</head>
+<body>
+	<h1>Intervalos de Tiempo (setInterval) JS</h1>
+	<hr>
+	<section id="crono">
+		<output><span id="tiempo"></span> Segundos</output>
+		<br>
+		<button id="init">Iniciar</button>
+		<button id="stop">Parar</button>
+		<button id="reset">Reiniciar</button>
+	</section>
+	<script>
+		var tiempo = document.getElementById('tiempo');
+		var init   = document.getElementById('init');
+		var stop   = document.getElementById('stop');
+		var reset  = document.getElementById('reset');
+		var cont   = 0;
+		var emp;
+
+		init.onclick = function(){
+			emp = setInterval(Clock,1000);
+		}
+		stop.onclick = function(){
+			clearInterval(emp);
+		}
+		reset.onclick = function(){
+			cont = 0;
+			clearInterval(emp);
+			emp = setInterval(Clock,1000);
+		}
+		function Clock(){
+			cont++;
+			tiempo.innerHTML = cont;
+		};
+
+	</script>
+</body>
+</html>

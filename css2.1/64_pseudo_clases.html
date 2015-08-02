@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PSEUDO Selectores - Elementos</title>
+	<style>
+		html { font-size: 62.5%; }
+		body {
+			font: 1.8rem sans-serif;
+		}
+		nav {
+			margin-top: 20px;
+		}
+		nav a:link,
+		nav a:visited {
+			background-color: #3C6347;
+			border-bottom: 4px solid #284430;
+			color: #fff;
+			margin-right: 20px;
+			padding: 10px;
+			text-decoration: none;
+		}
+		nav a:hover {
+			background-color: #6C2A2F;
+			border-bottom: 4px solid #481B1E;
+		}
+		nav a:active {
+			background-color: #375C7F;
+			border-bottom: 4px solid #233B53;
+		}
+		ol li:first-child {
+			background-color: orange;
+		}
+		ol li:last-child {
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<h1>PSEUDO Selectores - Elementos</h1>
+	<hr>
+	<nav>
+		<a href="#enlace1">Enlace 1</a>
+		<a href="#enlace2">Enlace 2</a>
+		<a href="#enlace3">Enlace 3</a>
+		<a href="#enlace4">Enlace 4</a>
+	</nav>
+	<br>
+	<ol>
+		<li>Naranja</li>
+		<li>Manzana</li>
+		<li>Pera</li>
+		<li>Guayaba</li>
+		<li>Fresa</li>
+	</ol>
+</body>
+</html>

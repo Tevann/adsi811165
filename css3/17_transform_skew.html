@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transform (skew) CSS3</title>
+	<style>
+		section {
+			background-color: #444;
+			color: #fff;
+			height: 400px;
+			margin: 10px auto;
+			width: 800px;
+		}
+		div.element {
+			background-color: #ff0;
+			color: #000;
+			height: 40px;
+			left: 200px;
+			position: relative;
+			top: 100px;
+			width: 200px;
+		}
+		section#box1 div.element {
+			-webkit-transform: skew(50deg, 50deg);
+			        transform: skew(50deg, 50deg);
+		}
+		section#box2 div.element {
+			-webkit-transform: skewX(45deg);
+			        transform: skewX(45deg);
+		}
+		section#box3 div.element {
+			-webkit-transform: skewY(120deg);
+			        transform: skewY(120deg);
+		}
+	</style>
+</head>
+<body>
+	<h1>Transform (skew) CSS3</h1>
+	<hr>
+	<section id="box1">
+		<h4>transform: skew(50deg, 50deg);</h4>
+		<div class="element">Element</div>
+	</section>
+	<section id="box2">
+		<h4>transform: scale(45deg);</h4>
+		<div class="element">Element</div>
+	</section>
+	<section id="box3">
+		<h4>transform: scale(120deg);</h4>
+		<div class="element">Element</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funciones JS (Operadores Básicos)</title>
+  <style>
+      html { font-size: 62.5%; }
+      body {
+        color: #aaa;
+        font: 1.6rem sans-serif;
+      }
+      fieldset {
+        border: 1px solid #cbc9c9;
+        border-radius: 16px;
+        margin: 100px auto 10px auto;
+        padding: 10px;
+        width: 260px;
+      }
+      input, select, button {
+        display: block;
+        border: 1px solid #cbc9c9;
+        border-radius: 25px;
+        margin-bottom: 10px;
+        outline: none;
+        padding: 6px;
+        width: 260px;
+      }
+      select, button {
+        -webkit-appearance: none;
+        width: 272px;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      h1 {
+        color: #74962b;
+        font-size: 1.6rem;
+        margin: 10px auto;
+        text-align: center;
+        width: 272px;
+      }
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend><h3>Operadores Básicos</h3></legend>
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
+    <select id="oper">
+      <option value="suma" selected>Suma</option>
+      <option value="resta">Resta</option>
+      <option value="producto">Producto</option>
+      <option value="division">División</option>
+      <option value="exponenciacion">Exponenciación</option>
+    </select>
+    <button id="calcular">Calcular</button>
+  </fieldset>
+  <h1 id="resultado"></h1>
+  <script>
+      var calcular  = document.getElementById('calcular');
+      var resultado = document.getElementById('resultado');
+
+      function sumar(n1, n2) {
+        return (n1+n2);
+      }
+      function restar(n1, n2) {
+        return (n1-n2);
+      }
+      function producto(n1, n2) {
+        return (n1*n2);
+      }
+      function dividir(n1, n2) {
+        return (n1/n2);
+      }
+      function exponenciacion(n1, n2) {
+        return (Math.pow(n1, n2));
+      }
+
+      calcular.onclick = function() {
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+        var oper = document.getElementById('oper').value;
+        if (oper == 'suma') {
+          resultado.innerHTML = "La suma es: "+sumar(num1, num2);
+        }
+        if (oper == 'resta') {
+          resultado.innerHTML = "La resta es: "+restar(num1, num2);
+        }
+        if (oper == 'producto') {
+          resultado.innerHTML = "El producto es: "+producto(num1, num2);
+        }
+        if (oper == 'division') {
+          resultado.innerHTML = "La división es: "+dividir(num1, num2);
+        }
+        if (oper == 'exponenciacion') {
+          resultado.innerHTML = "La exponenciación es: "+exponenciacion(num1, num2);
+        }
+      }
+  </script>
+</body>
+</html>

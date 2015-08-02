@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Profundidad (z-index) CSS</title>
+	<style>
+		html { font-size: 62.5%; }
+		body { font: 1.8rem sans-serif; }
+		section {
+			border: 4px solid #332656;
+			height: 200px;
+			font-size: 14rem;
+			text-align: center;
+			position: relative;
+			width: 400px;
+		}
+		.nivel1 {
+			background-color: #4f3a87;
+			color: #fff;
+			left: 300px;
+			top: 50px;
+		}
+		.nivel2 {
+			background-color: #7051c2;
+			color: #fff;
+			left: 500px;
+			top: -50px;
+		}
+		.nivel3 {
+			background-color: #bca6ea;
+			left: 700px;
+			top: -150px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Profundidad (z-index) CSS</h1>
+	<hr>
+	<section class="nivel1">1</section>
+	<section class="nivel2">2</section>
+	<section class="nivel3">3</section>
+</body>
+</html>

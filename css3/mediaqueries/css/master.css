@@ -1,0 +1,71 @@
+* {
+	-webkit-transition: all 0.4s;
+			transition: all 0.4s;
+}
+html { font-size: 62.5%; }
+body {
+	background-color: #000;
+	color: #ccc;
+	font: 1.6rem sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+section#page {
+	width: 100%;
+}
+header#logo {
+	background: #000 url(../imgs/logo3.png) no-repeat center center;
+	height: 320px;
+	margin: 0px auto;
+	width: 990px;
+}
+section#content {
+	margin: 20px auto; 
+	width: 994px;
+}
+section#content article {
+	display: inline-block;
+	border: 2px solid #333;
+	margin: 0px 10px 20px 0px;
+	padding: 12px;
+	text-align: justify;
+	vertical-align: top;
+	width: 290px;
+}
+section#content article h2 {
+	color: #fff;
+	font-family: 'Conv_GearsOfPeace';
+}
+section#content article figure.image {
+	height: 160px;
+	width: 220px;
+}
+section#content article figure.image1 {
+	background: #000 url(../imgs/mfenix.png) no-repeat center top;
+}
+section#content article figure.image2 {
+	background: #000 url(../imgs/domsant.png) no-repeat center top;
+}
+section#content article figure.image3 {
+	background: #000 url(../imgs/acole.png) no-repeat center top;
+}
+@media screen and (max-width: 1024px) {
+			header#logo {
+				background: #000 url(../imgs/logo2.png) no-repeat center center;
+				height: 400px;
+				width: 670px;
+			}
+			section#content {
+				width: 680px;
+			}
+}
+@media screen and (max-width: 660px) {
+			header#logo {
+				background: #000 url(../imgs/logo1.png) no-repeat center center;
+				height: 232px;
+				width: 232px;
+			}
+			section#content {
+				width: 320px;
+			}
+}

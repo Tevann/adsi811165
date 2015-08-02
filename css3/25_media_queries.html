@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<title>Responsive Images CSS3</title>
+	<style>
+		html { font-size: 62.5%; }
+		body { font: 1.8rem sans-serif;}
+		section#image {
+			background: #fff url(imgs/logo3.png) no-repeat center center;
+			height: 402px;
+			margin: 20px auto;
+			width: 1032px;
+
+			-webkit-transition: all 0.2s;
+					transition: all 0.2s;
+		}
+		@media screen and (max-width: 1024px) {
+			section#image {
+				background: #fff url(imgs/logo2.png) no-repeat center center;
+				height: 500px;
+				width: 600px;
+			}
+		}
+		@media screen and (max-width: 600px) {
+			section#image {
+				background: #fff url(imgs/logo1.png) no-repeat center center;
+				height: 309px;
+				width: 310px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Responsive Images CSS3</h1>
+	<hr>
+	<section id="image"></section>
+</body>
+</html>

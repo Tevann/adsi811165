@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Operadores Comparación</title>
+  <style>
+    html { font-size: 62.5%; }
+    body {
+      color: #666;
+      font: 1.6rem tahoma;
+    }
+    table {
+      border: 2px solid #ccc;
+      border-collapse: collapse;
+      padding: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+    }
+    th {
+      background: -webkit-linear-gradient(top, #666, #ccc);
+      background:         linear-gradient(top, #666, #ccc);
+      color: #fff;
+    }
+    tr:nth-child(2n){
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Operadores Comparación</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Operador</th>
+      <th>Descripción</th>
+      <th>Comparación</th>
+      <th>Resultado</th>
+    </tr>
+    <tr>
+      <td>==</td>
+      <td>Es igual a</td>
+      <td>x == 8</td>
+      <td id="res1"></td>
+    </tr>
+    <tr>
+      <td>===</td>
+      <td>Exantamente Igual a (Valor y Tipo)</td>
+      <td>x === 5</td>
+      <td id='res2'></td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>No es Igual a</td>
+      <td>x != 8</td>
+      <td id='res3'></td>
+    </tr>
+    <tr>
+      <td>!==</td>
+      <td>No es Igual a (Valor y Tipo)</td>
+      <td>x !== 5</td>
+      <td id='res4'></td>
+    </tr>
+    <tr>
+      <td>></td>
+      <td>Mayor que</td>
+      <td>x > 8</td>
+      <td id='res5'></td>
+    </tr>
+    <tr>
+      <td><</td>
+      <td>Menor que</td>
+      <td>x < 8</td>
+      <td id='res6'></td>
+    </tr>
+    <tr>
+      <td>>=</td>
+      <td>Mayor e Igual</td>
+      <td>x >= 8</td>
+      <td id='res7'></td>
+    </tr>
+    <tr>
+      <td><=</td>
+      <td>Menor e Igual</td>
+      <td>x <= 8</td>
+      <td id='res8'></td>
+    </tr>
+  </table>
+  <script>
+    var res1 = document.getElementById('res1');
+    var res2 = document.getElementById('res2');
+    var res3 = document.getElementById('res3');
+    var res4 = document.getElementById('res4');
+    var res5 = document.getElementById('res5');
+    var res6 = document.getElementById('res6');
+    var res7 = document.getElementById('res7');
+    var res8 = document.getElementById('res8');
+    var x = 5;
+    res1.innerHTML = (x == 8);
+    res2.innerHTML = (x === 5);
+    res3.innerHTML = (x != 8);
+    res4.innerHTML = (x !== 5);
+    res5.innerHTML = (x > 8);
+    res6.innerHTML = (x < 8);
+    res7.innerHTML = (x >= 8);
+    res8.innerHTML = (x <= 8);
+  </script>
+</body>
+</html>

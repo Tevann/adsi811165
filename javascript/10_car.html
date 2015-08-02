@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reto Objetos</title>
+<style>
+	div#car1 {
+		  background: #fff url(imgs/morris-car.png) no-repeat center center;
+		  background-size: 100%;
+		  height: 80px;
+		  margin-top: 100px;
+		  position: relative;
+		  width: 120px;
+		  -webkit-transform: rotateY(180deg);
+	}
+	div#car2 {
+		  background: #fff url(imgs/morris-car.png) no-repeat center center;
+		  background-size: 100%;
+		  height: 80px;
+		  margin-top: 100px;
+		  position: relative;
+		  width: 120px;
+		  -webkit-transform: rotateY(180deg);
+		  -webkit-animation: animateCar 4s linear infinite;
+	}
+	@-webkit-keyframes animateCar {
+		0% { 
+			left: 0px; 
+			 -webkit-transform: rotateY(180deg);
+		}
+		50% { 
+			left: 1120px; 
+			 -webkit-transform: rotateY(180deg);
+		}
+		51% {
+			left: 1120px; 
+			 -webkit-transform: rotateY(0deg);
+		}
+		100% { 
+			left: 0px; 
+			 -webkit-transform: rotateY(0deg);
+		}
+	}
+</style>
+</head>
+<body>
+	<div id="car1"></div>
+	<div id="car2"></div>
+	<script>
+		var car     = document.getElementById('car1');
+		var etiempo = setInterval(animateCar, 100);
+		var poscar  = 0;
+		var dircar  = 'right';
+
+		function animateCar() {
+			  if(poscar == 1120) dircar = 'left';
+			  if(poscar == 0) dircar = 'right';
+			  
+			  if(dircar == 'right') {
+			    poscar += 20;
+			    car.style.webkitTransform = 'rotateY(180deg)';
+			    car.style.left = poscar+'px';
+			  } else {
+			    poscar -= 20;
+			    car.style.webkitTransform = 'rotateY(0deg)';
+			    car.style.left = poscar+'px';
+			  }
+		}	
+	</script>
+</body>
+</html>

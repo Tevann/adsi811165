@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transition CSS3</title>
+	<style>
+		nav#menu li {
+			background-color: purple;
+			height: 100px;
+			list-style: none;
+			margin-bottom: 10px;
+			width: 100px;
+			/* -webkit-transition: width 0.5s; */
+			-webkit-transition: all 0.5s;
+			        transition: all 0.5s;
+		}
+		nav#menu li:hover {
+			background-color: teal;
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Transition CSS3</h1>
+	<hr>
+	<nav id="menu">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</nav>
+</body>
+</html>

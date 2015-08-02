@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Condicional (switch) JS</title>
+</head>
+<body>
+	<h1>Condicional (switch) JS</h1>
+	<hr>
+	<fieldset>
+		<legend>Personajes StreetFighters</legend>
+		<select id="personaje">
+			<option value="0">Seleccione...</option>
+			<option value="1">Poison</option>
+			<option value="2">Ryu</option>
+			<option value="3">Zangief</option>
+		</select>
+	</fieldset>
+	<script>
+		var personaje = document.getElementById('personaje');
+		var cuerpo    = document.querySelector('body');
+
+		cuerpo.style.backgroundRepeat   = 'no-repeat';
+		cuerpo.style.backgroundPosition = 'center center';
+		cuerpo.style.backgroundSize     = 'contain';
+		cuerpo.style.height             = '600px';
+
+		personaje.onchange = function() {
+			switch(parseInt(this.value)) {
+				case 0:
+					cuerpo.style.backgroundImage = 'none';
+					break;
+
+				case 1:
+					cuerpo.style.backgroundImage = 'url(imgs/poison.png)';
+					break;
+
+				case 2:
+					cuerpo.style.backgroundImage = 'url(imgs/ryu.png)';
+					break;
+
+				default:
+					cuerpo.style.backgroundImage = 'url(imgs/zangief.png)';
+					break;
+			}
+		}
+	</script>
+</body>
+</html>

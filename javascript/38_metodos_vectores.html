@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Métodos Vectores JS</title>
+	<style>
+		html{ font-size: 62.5%; }
+		body{
+			background-color: #8B4513;
+			color: #F4A460;
+			font: 1.6rem Tahoma;
+		}
+		h1{ text-align: center;}
+		main{
+			margin: 0px auto;
+			width: 820px;
+		}
+		section{
+			display: inline-block;
+			vertical-align: top;
+			width: 400px;
+		}
+		section.rsection{
+			margin-left: 10px;
+		}
+
+		fieldset{
+			border: 2px solid #F4A460;
+			padding: 10px;
+			margin: 20px 0px;
+			width: 380px;
+		}
+		input, select, button{
+			-webkit-appearance: none;
+			border: none;
+			padding: 10px;
+			display: block;
+			margin: 10px 0px;
+			width: 360px;	
+			color: #8B4513;
+		}
+		select, button{
+			width: 380px;
+		}
+		select{
+			background: #fff url(imgs/flecha.png) no-repeat 350px center;
+			background-size: 20px;
+
+		}
+		button{
+			background-color: #F4A460;
+			color: #8B4513;
+		}
+		ul#bicis {
+			list-style: none;
+			margin: 0px auto;
+			padding: 0px;
+			width: 120px;
+		}
+		ul#bicis li {
+			background: #fff url(imgs/sport.png) no-repeat center center;
+			background-size: contain;
+			border: 1px solid #F4A460;
+			height: 100px;
+			padding: 4px;
+			text-align: center;
+			margin-bottom: 4px;
+			width: 100px;
+
+
+			-webkit-animation: 0.5s animBici 1 ease-in-out;
+					animation: 0.5s animBici 1 ease-in-out;
+		}
+		@-webkit-keyframes animBici {
+			0% {
+				opacity: 0;
+				-webkit-transform: scale(0);
+			}
+			100% {
+				opacity: 1;
+				-webkit-transform: scale(1);
+
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Métodos Vectores JS</h1>
+	<main>
+		<section class="lsection">
+	<fieldset>
+		<legend><h4>Agregar Marca (Bici)</h4></legend>
+		<input type="text" id="marca">
+		<select id="apos">
+			<option value="ainicio">Inicio</option>
+			<option value="afinal">Final</option>
+			<option value="adds">Posición</option>
+		</select>
+		<input type="number" id="anum">
+		<button id="agregar">Agregar</button>
+	</fieldset>
+		<fieldset>
+		<legend><h4>Eliminar Marca (Bici)</h4></legend>
+		<select id="epos">
+			<option value="einicio">Inicio</option>
+			<option value="efinal">Final</option>
+			<option value="elegir">Posición</option>
+		</select>
+		<input type="number" id="enume">
+		<button id="eliminar">Eliminar</button>
+	</fieldset>
+		</section>
+
+		<section class="rsection">
+			<fieldset>
+				<legend><h4>Lista de Marcas (Bici)</h4></legend>
+				<ul id="bicis">
+					
+				</ul>
+			</fieldset>
+		</section>
+	</main>	
+	<script>
+	 	var agregar  = document.getElementById('agregar');
+	 	var eliminar = document.getElementById('eliminar');
+	 	var bicis    = document.getElementById('bicis');
+	 	var arrbici  = new Array;
+
+	 	agregar.onclick = function(){
+	 		var marca  = document.getElementById('marca').value;
+	 		var apos   = document.getElementById('apos').value;
+	 		var anum   = Number(document.getElementById('anum').value);
+
+
+	 		if(marca.length > 0){
+	 			if(apos == 'adds'){
+	 				arrbici.splice(anum,0,marca);
+	 			console.log(arrbici);
+	 			}
+	 			if(apos == 'ainicio'){
+	 				arrbici.unshift(marca);
+	 			console.log(arrbici);
+
+	 			}
+	 			if(apos == 'afinal'){
+	 				arrbici.push(marca);
+	 			}
+	 		}
+	 			document.getElementById('marca').value = '';			
+	 			mostrarBicis();
+	 		}
+	 	eliminar.onclick = function(){
+	 		var epos  = document.getElementById('epos').value;
+	 		var enume = Number(document.getElementById('enume').value);
+
+	 		if(epos == 'elegir'){
+	 			arrbici.splice(enume, 1);
+	 			console.log(arrbici);
+	 		}
+	 		if(epos == 'einicio'){
+	 			arrbici.shift();
+	 		}
+	 		if(epos == 'efinal'){
+	 			arrbici.pop();
+	 			}
+	 			mostrarBicis();
+
+	 	}
+	 		function mostrarBicis(){
+
+	 			bicis.innerHTML = "";
+	 			for (var i = 0; i < arrbici.length; i++) {
+	 				bicis.innerHTML  += "<li>"+arrbici[i]+"</li>";
+	 			}
+	 		}
+	</script>
+</body>
+</html>

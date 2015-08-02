@@ -1,0 +1,78 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+section#animation {
+	background: transparent url(../imgs/base.png) no-repeat;
+	height: 800px;
+	margin: 0 auto;
+	width: 1280px;
+	overflow: hidden;
+}
+article {
+	height: 1600px;
+	position: relative;
+}
+article#level1 {
+	background: transparent url(../imgs/level1.png) repeat-y;
+	z-index: 1;
+
+	-webkit-animation: 10s animLevel1 linear infinite;
+}
+article#level2 {
+	background: transparent url(../imgs/level2.png) repeat-y;
+	top: -1600px;
+	z-index: 2;
+
+	-webkit-animation: 20s animLevel2 linear infinite;
+}
+article#level3 {
+	background: transparent url(../imgs/level3.png) repeat-y;
+	top: -3200px;
+	z-index: 3;
+
+	-webkit-animation: 2s animLevel3 linear infinite;
+}
+article#starship {
+	background: transparent url(../imgs/starship.png) no-repeat center center;
+	margin: 0 auto;
+	height: 215px;
+	width: 146px;
+	z-index: 2;
+	position: relative;
+	top: -4300px;
+
+	-webkit-animation: 1s animStarship ease-out infinite;
+}
+@-webkit-keyframes animLevel1 {
+	0% {
+		top: -800px;
+	}
+	100% {
+		top: 0px;
+	}
+}
+@-webkit-keyframes animLevel2 {
+	0% {
+		top: -2400px;
+	}
+	100% {
+		top: -1600px;
+	}
+}
+@-webkit-keyframes animLevel3 {
+	0% {
+		top: -4000px;
+	}
+	100% {
+		top: -3200px;
+	}
+}
+@-webkit-keyframes animStarship {
+	0%, 100% {
+		left: 0px;
+	}
+	50% {
+		left: 10px;
+	}
+}
