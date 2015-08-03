@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Superman CROSSING SKY</title>
+	<title>HERO CROSSING SKY</title>
 	<link rel="stylesheet" href="css/master.css">
 </head>
 <body id="bdy">
 	<section id="sky">
-		<div id="hero"></div>
+		<div id="hero" class="tip_hero"></div>
 		<div id="pl1"></div>
 		<div id="pl2"></div>
 		<div id="pl3"></div>
@@ -17,14 +17,33 @@
 		<div id="pl6"></div>
 		<!-- -->
 		<ul id="lifetime">
-			<li class="heart"></li>
-			<li class="heart"></li>
-			<li class="heart"></li>
+			<li class="heart log_1" id="salud"></li>
+			<li class="heart log_1" id="salud1"></li>
+			<li class="heart log_1" id="salud2"></li>
 		</ul>
 		<!-- -->
 		<div id="time">Time: <span id="second">0s</span></div>
+		<div id="level">Nivel: <span id="level">1</span></div>
+		<button id="mn">Menu</button>
 	</section>
-	<button id="gplay">Jugar</button>
+	<!-- -->
+	<section id="men">
+		<div id="big_tit">Hero Crossing</div>
+		<div id="adsi">A.D.S.I</div>
+		<div id="tit">Hero <br>Crossing</div>
+		<div id="left">
+		<div class="mn_1" id="gplay"><h1>Play!</h1></div>
+		<div class="mn_2" id="personaje"><h2>Character</h2></div>
+		<div class="mn_3"><h1>Score</h1></div>
+		</div>
+		<div id="right">
+			<div class="subtit">Heros</div>
+			<div class="contenido"></div>
+			<div id="sup_1" class="heroes her2"></div>
+			<div id="sup_2" class="heroes her1"></div>
+		</div>
+		<div id="her"></div>
+	</section>
 	<script src="js/games.js"></script>
 </body>
 </html>

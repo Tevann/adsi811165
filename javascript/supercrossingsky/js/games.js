@@ -2,6 +2,19 @@ var bdy   = document.getElementById('bdy');
 var hero  = document.getElementById('hero');
 var sky  = document.getElementById('sky');
 var gplay = document.getElementById('gplay');
+var men = document.getElementById('men');
+var sky = document.getElementById('sky');
+var right = document.getElementById('right');
+var personaje = document.getElementById('personaje');
+var tit = document.getElementById('tit');
+var big_tit = document.getElementById('big_tit');
+var adsi = document.getElementById('adsi');
+var sup_1 = document.getElementById('sup_1');
+var sup_2 = document.getElementById('sup_2');
+var salud = document.getElementById('salud');
+var salud1 = document.getElementById('salud1');
+var salud2 = document.getElementById('salud2');
+var mn = document.getElementById('mn');
 
 var pl1   = document.getElementById('pl1');
 var pl2   = document.getElementById('pl2');
@@ -38,10 +51,49 @@ var cr4   = Math.floor(Math.random() * 5) + 1;
 var cr5   = Math.floor(Math.random() * 5) + 1;
 var cr6   = Math.floor(Math.random() * 5) + 1;
 
+men.style.display = 'block';
+sky.style.display = 'none';
+right.style.display = 'none';
+tit.style.display = 'none';
+
+mn.onclick = function(){
+  men.style.display = 'block';
+  sky.style.display = 'none';
+  stopGame();
+  Over();
+}
 gplay.onclick = function() {
-  this.style.display = 'none';
+  men.style.display = 'none';
+  sky.style.display = 'block';
   sky.style.opacity = '1';
   initGame();
+}
+personaje.onclick = function(){
+  right.style.display = 'block';
+  tit.style.display = 'block';
+  big_tit.style.display = 'none';
+  adsi.style.display = 'none';
+}
+
+sup_1.onclick = function(){
+  hero.classList.add('hero_2');
+  salud.classList.add('log_2');
+  salud1.classList.add('log_2');
+  salud2.classList.add('log_2');
+  sup_1.classList.add('he1');
+  sup_2.classList.remove('he2');
+  sup_1.style.zIndex = '3';
+  sup_2.style.zIndex = '2';
+}
+sup_2.onclick = function(){
+  hero.classList.add('hero_1');
+  salud.classList.add('log_1');
+  salud1.classList.add('log_1');
+  salud2.classList.add('log_1');
+  sup_2.classList.add('he2');
+  sup_1.classList.remove('he1');
+  sup_2.style.zIndex = '3';
+  sup_1.style.zIndex = '2';
 }
 
 function initGame() {
@@ -56,7 +108,7 @@ function initGame() {
   activarClock();
 }
 function moveSuper() {
-  post = 600;
+  post = 590;
   posl = 450;
   bdy.onkeyup = function(e) {
       var kcod = e.keyCode;
@@ -68,7 +120,7 @@ function moveSuper() {
       }
       if (kcod == 38) {
         if (post > 40) {
-          post -= 73;
+          post -= 74;
           hero.style.top = post+'px';
           }
       }
@@ -80,7 +132,7 @@ function moveSuper() {
       }
       if (kcod == 40) {
         if (post < 590) {
-          post += 70;
+          post += 74;
           hero.style.top = post+'px';
         }
       }
@@ -128,7 +180,7 @@ function planeRandom5() {
 } 
 function planeRandom6() {
   pl6.classList.add('plane'+cr6);
-  tcr6 = setInterval(animPlane6, 5);
+  tcr6 = setInterval(animPlane6, 10);
 }
 
 function activarClock(){
@@ -227,6 +279,7 @@ function dieSuper(){
     console.log('Game Over');
     stopGame();
     resetGame();
+    var respuesta = prompt('Introduce tu nombre');
   }
 }
 
@@ -239,9 +292,9 @@ function stopGame(){
   pos6  =  960;
 
   hero.style.left = "450px";
-  hero.style.top  = "600px";
+  hero.style.top  = "590px";
 
-  post = 600;
+  post = 590;
   posl = 450;
 }
 function resetGame(){
@@ -252,4 +305,7 @@ function resetGame(){
 function clock(){
   cont++;
   second.innerHTML = cont+"s";
+}
+function Over(){
+  window.location.replace('');
 }

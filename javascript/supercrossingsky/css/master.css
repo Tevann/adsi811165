@@ -6,9 +6,9 @@ section#sky{
 	width: 960px;
 	position: relative;
 	box-shadow: 0px 0px  15px black;
-	opacity: 0.4;
+	/*opacity: 0.4;*/
 }
-button#gplay {
+/*button#gplay {
 	border: none;
 	background-color: #1E90FF;
 	color: #fff;
@@ -22,7 +22,7 @@ button#gplay {
 	width: 200px;
 	-webkit-transition: all 0.5s;
 			transition: all 0.5s;
-}
+}*/
 button#gplay:hover {
 	background-color: #87CEEB;
 	color: #fff;
@@ -32,13 +32,11 @@ button#gplay:hover {
 }
 
 div#hero {
-	background: transparent url(../img/hero.png) no-repeat center center;
 	height: 70px;
 	position: relative;
 	left: 450px;
 	top: 590px;
 	width: 70px;
-	border: 1px solid red;
 	-webkit-transition: all 0.1s;
 
 /*		-webkit-animation: 1s Hero ease-in-out infinite;
@@ -56,17 +54,24 @@ div#pl1{
 	position: relative;
 	top: 295px;
 	left: -154px;
-	border: 1px solid red;
 }
 div#pl4,
 div#pl5,
 div#pl6 {
-	top: -215px;
+	top: -210px;
 	-webkit-transform: rotateY(180deg);
 			transform: rotateY(180deg);
 }
 
-
+.tip_hero{	
+	background: transparent url(../img/hero_1.png) no-repeat center center;
+}
+.hero_1{
+	background: transparent url(../img/hero_1.png) no-repeat center center;
+}
+.hero_2{
+	background: transparent url(../img/hero_2.png) no-repeat center center;
+}
 div.plane1 {
 	background: transparent url(../img/plane1.png) no-repeat center center;
 }
@@ -93,7 +98,6 @@ ul#lifetime{
 	left: 780px;
 }
 ul#lifetime li{
-	background: transparent url(../img/rayo.png) no-repeat center;
 	list-style: none;
 	padding: 0px;
 	margin: 0px;
@@ -101,15 +105,23 @@ ul#lifetime li{
 	height: 48px;
 	width: 52px;
 }
-
+.log_1{
+	background: transparent url(../img/logo_superman.png) no-repeat center;
+}
+.log_2{
+	background: transparent url(../img/logo_batman.png) no-repeat center;
+}
+div#level,
 div#time{
 	position: relative;
-	top: -520px;
+	top: -540px;
 	left: 20px;
 	font-family: tahoma;
 	font-size: 1.4rem;
 	color: black;
+	margin-bottom: 5px;
 }
+div#level{ font-size: 1rem; }
 
 @-webkit-keyframes btnPlay {
 	0%, 100% {
@@ -123,4 +135,254 @@ div#time{
 @-webkit-keyframes Hero {
 	0%,100%{ top: 560px;}
 	50%{ top: 565px; }
+}
+
+/*------ Menu Principal -------*/
+section#men{
+	height: 662px;
+	margin: 0 auto;
+	width: 960px;
+	position: absolute;
+	top: 8px;
+	left: 199px;
+	box-shadow: 0px 0px  15px black;
+	overflow: hidden;
+
+	-webkit-transition: 3s all;
+
+}
+div#tit {
+	position: absolute;
+	top: 20px;
+	left: 180px;
+	font-family:  Tahoma;
+	font-size: 4.5rem;
+	text-align: center;
+	color: white;
+
+	-webkit-animation: 1s animTit ease-in-out infinite;
+			animation: 1s animTit ease-in-out infinite;
+}
+div#big_tit {
+	position: absolute;
+	top: 80px;
+	left: 180px;
+	font-family:  Tahoma;
+	font-size: 6rem;
+	text-align: center;
+	color: white;
+	z-index: 10;
+
+	-webkit-animation: 1s animTit ease-in-out infinite;
+			animation: 1s animTit ease-in-out infinite;
+}
+div#adsi {
+	position: absolute;
+	top: 380px;
+	left: 440px;
+	font-family:  Tahoma;
+	font-size: 6rem;
+	text-align: center;
+	color: white;
+	z-index: 10;
+
+	-webkit-animation: 1s animTit ease-in-out infinite;
+			animation: 1s animTit ease-in-out infinite;
+}
+div.contenido{
+	position: relative;
+	top: 500px;
+	left: 250px;
+	width: 398px;
+	height: 124px;
+	background: #1E90FF url(../img/logos.png) no-repeat;
+	z-index: 4;
+	-webkit-transition: all 0.4s;
+
+			-webkit-animation: 2s conte linear;
+					animation: 2s conte linear;
+}
+div.heroes{
+	position: relative;
+	top: 130px;
+	left: 200px;
+	width: 222px;
+	height: 350px;
+	z-index: 1;
+	display: inline-block;
+		-webkit-transition: all 0.4s;
+}
+div#sup_1{
+	left: 250px;
+	width: 238px;
+	height: 370px;
+				-webkit-animation: 2s animBat linear;
+						animation: 2s animBat linear;
+}
+div#sup_2{
+				-webkit-animation: 2s animSup linear;
+						animation: 2s animSup linear;
+}
+.her2{
+	background: transparent url(../img/bat_1.png) no-repeat;
+}
+.her1{
+	background: transparent url(../img/sup_1.png) no-repeat;
+}
+div.subtit{
+	position: absolute;
+	left: 460px;
+	font-family: Tahoma;
+	font-size: 3rem;
+	top: 80px;
+	color: #1E90FF;
+	z-index: 7;
+
+		-webkit-animation: 1s animTit ease-in-out infinite;
+				animation: 1s animTit ease-in-out infinite;
+}
+div#left{
+	background: transparent url(../img/left.png) no-repeat;
+	width: 739px;
+	height: 662px;
+}
+div#right{
+	background: transparent url(../img/right.png) no-repeat;
+	position: relative;
+	top: -662px;
+	left: 274px;
+	width: 686px;
+	height: 662px;
+}
+div#her{
+	background: transparent url(../img/right_1.png) no-repeat;
+	position: relative;
+	top: -662px;
+	left: 275px;
+	width: 686px;
+	height: 662px;
+	z-index: 5;
+}
+div.mn_1{
+	background: transparent url(../img/menu_1.png) no-repeat;
+	width: 278px;
+	height: 110px;
+	position: absolute;
+	top: 300px;
+	cursor: pointer;
+	-webkit-transition: all 0.4s;
+
+		-webkit-animation: 1s btns linear;
+				animation: 1s btns linear;
+}
+div.mn_2{
+	background: transparent url(../img/menu_2.png) no-repeat;
+	width: 278px;
+	height: 110px;
+	position: absolute;
+	top: 420px;
+	cursor: pointer;
+
+		-webkit-animation: 2s btns linear;
+				animation: 2s btns linear;
+}
+div.mn_3{
+	background: transparent url(../img/menu_3.png) no-repeat;
+	width: 278px;
+	height: 110px;
+	position: absolute;
+	top: 540px;
+	cursor: pointer;
+	-webkit-transition: all 0.4s;
+
+		-webkit-animation: 3s btns linear;
+				animation: 3s btns linear;
+}
+div.mn_2 h2,
+div.mn_3 h1,
+div.mn_1 h1{
+	font-size: 3rem;
+	font-family: Tahoma;
+	color: white;
+	margin: 25px 25px;
+}
+button#mn{
+	position: absolute;
+	top: 40px;
+	left: 80px;
+	padding: 7px;
+	border: none;
+	color: white;
+	background-color: #1E90FF;
+	cursor: pointer;
+}
+div.mn_1:hover{
+	background: transparent url(../img/menu_1.2.png) no-repeat;
+	color: black;
+}
+div.mn_2:hover{
+	background: transparent url(../img/menu_2.1.png) no-repeat;
+	color: black;
+	width: 321px;
+}
+div.mn_3:hover{
+	background: transparent url(../img/menu_3.1.png) no-repeat;
+	color: black;
+}
+div#sup_1:hover{
+	background: transparent url(../img/bat_1.1.png) no-repeat;
+	z-index: 3;
+	cursor: pointer;
+}
+div#sup_2:hover{
+	background: transparent url(../img/sup_1.1.png) no-repeat;
+	z-index: 3;
+	cursor: pointer;
+}
+.he1{
+	background: transparent url(../img/bat_1.1.png) no-repeat;
+}
+.he2{
+	background: transparent url(../img/sup_1.1.png) no-repeat;
+}
+
+@-webkit-keyframes animTit {
+	0%, 100% {
+		-webkit-transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(1.1);
+	}
+}
+@-webkit-keyframes btns {
+	0%{
+		left: -400px;
+	}
+	100% {
+		left: 0px;
+	}
+}
+@-webkit-keyframes animBat {
+	0%{
+		left: 700px;
+	}
+	100% {
+		left: 250px;
+	}
+}
+@-webkit-keyframes animSup {
+	0%{
+		left: 700px;
+	}
+	100% {
+		left: 200px;
+	}
+}
+@-webkit-keyframes conte {
+	0%{
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
