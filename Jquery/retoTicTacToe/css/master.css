@@ -1,0 +1,119 @@
+html{ font-size: 62.5%; }
+
+body{
+	background-color: #2aa7d6;
+	padding: 0px;
+	margin: 0px;
+	font-size: 1.6rem;
+	font-family: 'Roboto-light';
+}
+
+section#screen2,
+section#screen1{
+	position: relative;
+}
+
+header figure#title{
+	background: #aae3f1 url(../imgs/title.png) no-repeat center center;
+	width: 600px;
+	height: 80px;
+	margin: 20px auto;
+}
+
+main {
+	margin: 0px auto;
+	width: 600px;
+}
+main label {
+	color: white;
+	display: block;
+	font-size: 3rem;
+	margin: 10px 0px;
+}
+main input{
+	display: block;
+	width: 600px;
+	height: 50px;
+	color: #092630;
+	outline: none;
+	text-indent: 20px;
+	font-size: 2rem;
+	background-color: #2085ac;
+	border: none;
+	font-family: 'Roboto-light';
+}
+
+main nav#symbols{
+	margin: 0pc auto;
+	width: 400px;
+	list-style: none;
+}
+main nav#symbols li{
+	width: 120px;
+	height: 120px;
+	background-size: 100%;
+	display: inline-block;
+	margin: 0px 10px 10px 0px;
+
+	-webkit-transition: 0.2s all;
+			transition: 0.2s all;
+}
+
+main nav#symbols li#symbol1{
+	background: #2085ac url(../imgs/simbol1.png) no-repeat center center;
+	background-size: 80%;
+}
+main nav#symbols li#symbol2{
+	background: #2085ac url(../imgs/simbol2.png) no-repeat center center;
+	background-size: 80%;
+}
+main nav#symbols li#symbol3{
+	background: #2085ac url(../imgs/simbol3.png) no-repeat center center;
+	background-size: 80%;
+}
+main nav#symbols li#symbol4{
+	background: #2085ac url(../imgs/simbol4.png) no-repeat center center;
+	background-size: 80%;
+}
+main nav#symbols li#symbol5{
+	background: #2085ac url(../imgs/simbol5.png) no-repeat center center;
+	background-size: 80%;
+}
+main nav#symbols li#symbol6{
+	background: #2085ac url(../imgs/simbol6.png) no-repeat center center;
+	background-size: 80%;
+}
+
+main nav#symbols li:hover{
+	cursor: pointer;
+	background-size: 100% !important;
+}
+.active{
+	background-color: #0f4c62 !important;
+		animation: 0.5s animSimbol ease-in-out 1;
+}
+footer{
+	margin: 0px auto;
+	width: 600px;
+}
+footer button{
+	background-color: #fff;
+	display: block;
+	width: inherit;
+	height: 50px;
+	font-size: 3rem;
+	color: #2e85ac;
+	font-family: 'Roboto-Light';
+	margin: 10px auto;
+	border: none;
+
+	transition: 0.5s all;
+}
+button:hover{
+	text-indent: 40px;
+	cursor: pointer;
+}
+@keyframes animSimbol {
+	10%,30%,50%,70%,90% { transform: scale(1); }
+	20%,40%,60%,80%,100% { transform: scale(0.8); }
+}
