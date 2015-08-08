@@ -8,6 +8,7 @@ body{
 	font-family: 'Roboto-light';
 }
 
+section#screen3,
 section#screen2,
 section#screen1{
 	position: relative;
@@ -31,6 +32,7 @@ main label {
 	margin: 10px 0px;
 }
 main input{
+	text-transform: capitalize;
 	display: block;
 	width: 600px;
 	height: 50px;
@@ -60,27 +62,27 @@ main nav#symbols li{
 }
 
 main nav#symbols li#symbol1{
-	background: #2085ac url(../imgs/simbol1.png) no-repeat center center;
+	background: #2085ac url(../imgs/symbol1.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol2{
-	background: #2085ac url(../imgs/simbol2.png) no-repeat center center;
+	background: #2085ac url(../imgs/symbol2.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol3{
-	background: #2085ac url(../imgs/simbol3.png) no-repeat center center;
+	background: #2085ac url(../imgs/symbol3.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol4{
-	background: #2085ac url(../imgs/simbol4.png) no-repeat center center;
+	background: #2085ac url(../imgs/symbol4.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol5{
-	background: #2085ac url(../imgs/simbol5.png) no-repeat center center;
+	background: #2085ac url(../imgs/symbol5.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol6{
-	background: #2085ac url(../imgs/simbol6.png) no-repeat center center;
+	background: #2085ac url(../imgs/symbol6.png) no-repeat center center;
 	background-size: 80%;
 }
 
@@ -90,7 +92,17 @@ main nav#symbols li:hover{
 }
 .active{
 	background-color: #0f4c62 !important;
-		animation: 0.5s animSimbol ease-in-out 1;
+	animation: 0.5s animSimbol ease-in-out 1;
+}
+.activebox{
+	animation: 0.5s animSimbol ease-in;
+}
+.selected{
+	opacity: 0.2;
+	animation: none;
+}
+.selected:hover{
+	cursor: not-allowed !important;
 }
 footer{
 	margin: 0px auto;
@@ -111,6 +123,22 @@ footer button{
 }
 button:hover{
 	text-indent: 40px;
+	cursor: pointer;
+}
+main nav#boxes{
+	width: 440px;
+	margin: 20px auto;
+}
+main button{
+	border: none;
+	background-color: #2085ac;
+	width: 140px;
+	height: 140px;
+	margin-bottom:4px;
+}
+
+main button:hover{
+	background-color: #176381;
 	cursor: pointer;
 }
 @keyframes animSimbol {

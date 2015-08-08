@@ -8,13 +8,16 @@ var right = document.getElementById('right');
 var personaje = document.getElementById('personaje');
 var tit = document.getElementById('tit');
 var big_tit = document.getElementById('big_tit');
-var adsi = document.getElementById('adsi');
-var sup_1 = document.getElementById('sup_1');
-var sup_2 = document.getElementById('sup_2');
-var salud = document.getElementById('salud');
+var adsi    = document.getElementById('adsi');
+var sup_1   = document.getElementById('sup_1');
+var sup_2   = document.getElementById('sup_2');
+var salud  = document.getElementById('salud');
 var salud1 = document.getElementById('salud1');
 var salud2 = document.getElementById('salud2');
-var mn = document.getElementById('mn');
+var salud4 = document.getElementById('salud4');
+var mn     = document.getElementById('mn');
+var indica_level   = document.getElementById('indica_level');
+var sonido_fondo   = document.getElementById('sonido_fondo');
 
 var pl1   = document.getElementById('pl1');
 var pl2   = document.getElementById('pl2');
@@ -34,8 +37,10 @@ var pos3  = -160;
 var pos4  =  960;
 var pos5  =  960;
 var pos6  =  960;
+var pos7  =  600;
 var post;
 var posl;
+var level = new Number();
 
 var tcr1;
 var tcr2;
@@ -55,11 +60,13 @@ men.style.display = 'block';
 sky.style.display = 'none';
 right.style.display = 'none';
 tit.style.display = 'none';
+salud4.style.display = 'none';
 
 mn.onclick = function(){
   men.style.display = 'block';
   sky.style.display = 'none';
   stopGame();
+  sound_menu();
   Over();
 }
 gplay.onclick = function() {
@@ -67,12 +74,14 @@ gplay.onclick = function() {
   sky.style.display = 'block';
   sky.style.opacity = '1';
   initGame();
+  // sound_menu();
 }
 personaje.onclick = function(){
   right.style.display = 'block';
   tit.style.display = 'block';
   big_tit.style.display = 'none';
   adsi.style.display = 'none';
+  sound_menu();
 }
 
 sup_1.onclick = function(){
@@ -84,6 +93,8 @@ sup_1.onclick = function(){
   sup_2.classList.remove('he2');
   sup_1.style.zIndex = '3';
   sup_2.style.zIndex = '2';
+  sky.classList.add('sky_2');
+  mn.style.backgroundColor = 'gray';
 }
 sup_2.onclick = function(){
   hero.classList.add('hero_1');
@@ -94,6 +105,7 @@ sup_2.onclick = function(){
   sup_1.classList.remove('he1');
   sup_2.style.zIndex = '3';
   sup_1.style.zIndex = '2';
+  sky.classList.add('sky_1');
 }
 
 function initGame() {
@@ -106,6 +118,7 @@ function initGame() {
   planeRandom5();
   planeRandom6();
   activarClock();
+  sound();
 }
 function moveSuper() {
   post = 590;
@@ -122,6 +135,8 @@ function moveSuper() {
         if (post > 40) {
           post -= 74;
           hero.style.top = post+'px';
+          level++;
+          console.log(level);
           }
       }
       if (kcod == 39) {
@@ -134,7 +149,12 @@ function moveSuper() {
         if (post < 590) {
           post += 74;
           hero.style.top = post+'px';
+          level--;
+          console.log(level);
         }
+      }
+      if(level == 8){
+        nextLevel();
       }
   }
 }
@@ -150,34 +170,35 @@ function checkCollision(pl) {
     plright  = Number(pl.offsetLeft) + Number(pl.offsetWidth);
     plbottom = Number(pl.offsetTop)  + Number(pl.offsetHeight);
 
-    if (heroright  > plleft   && 
-        heroleft   < plright  && 
-        herotop    < plbottom && 
+    if (heroright  > plleft   &&
+        heroleft   < plright  &&
+        herotop    < plbottom &&
         herobottom > pltop ) {
         dieSuper();
+        reset_move();
         }
 }
 
 function planeRandom1() {
   pl1.classList.add('plane'+cr1);
   tcr1 = setInterval(animPlane1, 10);
-} 
+}
 function planeRandom2() {
   pl2.classList.add('plane'+cr2);
   tcr2 = setInterval(animPlane2, 20);
-} 
+}
 function planeRandom3() {
   pl3.classList.add('plane'+cr3);
   tcr3 = setInterval(animPlane3, 30);
-} 
+}
 function planeRandom4() {
   pl4.classList.add('plane'+cr4);
   tcr4 = setInterval(animPlane4, 20);
-} 
+}
 function planeRandom5() {
   pl5.classList.add('plane'+cr5);
   tcr5 = setInterval(animPlane5, 15);
-} 
+}
 function planeRandom6() {
   pl6.classList.add('plane'+cr6);
   tcr6 = setInterval(animPlane6, 10);
@@ -297,15 +318,56 @@ function stopGame(){
   post = 590;
   posl = 450;
 }
+
+function nextLevel(){
+  alert('Level 2');
+  indica_level.innerHTML = '2';
+  stopGame();
+  reset_move();
+  sound();
+  function planeRandom1() {
+    pl1.classList.add('plane'+cr1);
+    tcr1 = setInterval(animPlane1, 100);
+  }
+  function planeRandom2() {
+    pl2.classList.add('plane'+cr2);
+    tcr2 = setInterval(animPlane2, 200);
+  }
+  function planeRandom3() {
+    pl3.classList.add('plane'+cr3);
+    tcr3 = setInterval(animPlane3, 300);
+  }
+  function planeRandom4() {
+    pl4.classList.add('plane'+cr4);
+    tcr4 = setInterval(animPlane4, 300);
+  }
+  function planeRandom5() {
+    pl5.classList.add('plane'+cr5);
+    tcr5 = setInterval(animPlane5, 2);
+  }
+  function planeRandom6() {
+    pl6.classList.add('plane'+cr6);
+    tcr6 = setInterval(animPlane6, 1);
+  }
+}
+
 function resetGame(){
   alert('Game Over');
   window.location.replace('');
 }
-
+function reset_move(){
+  level = 0;
+}
 function clock(){
   cont++;
   second.innerHTML = cont+"s";
 }
 function Over(){
   window.location.replace('');
+}
+function sound(){
+  sonido_fondo.innerHTML = "<audio src='sound/sound_1.mp3' autoplay loop></audio>";
+}
+function sound_menu(){
+  sonido_fondo.innerHTML = "<audio src='sound/sound_menu.mp3' autoplay></audio>";
 }

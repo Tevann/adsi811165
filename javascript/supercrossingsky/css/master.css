@@ -1,5 +1,4 @@
 section#sky{
-	background: transparent url(../img/sky.png) no-repeat center center;
 	height: 662px;
 	margin: 0 auto;
 	overflow: hidden;
@@ -7,6 +6,12 @@ section#sky{
 	position: relative;
 	box-shadow: 0px 0px  15px black;
 	/*opacity: 0.4;*/
+}
+.sky_1{
+	background: transparent url(../img/sky.png) no-repeat center center;
+}
+.sky_2{
+	background: transparent url(../img/sky_2.png) no-repeat center center;
 }
 /*button#gplay {
 	border: none;
@@ -43,7 +48,7 @@ div#hero {
 				animation: 1s Hero ease-in-out infinite;*/
 }
 
-div#pl6, 
+div#pl6,
 div#pl5,
 div#pl4,
 div#pl3,
@@ -63,7 +68,7 @@ div#pl6 {
 			transform: rotateY(180deg);
 }
 
-.tip_hero{	
+.tip_hero{
 	background: transparent url(../img/hero_1.png) no-repeat center center;
 }
 .hero_1{
@@ -104,6 +109,14 @@ ul#lifetime li{
 	display: inline-block;
 	height: 48px;
 	width: 52px;
+}
+li.extra_vida{
+	position: relative;
+	list-style: none;
+	width: 53px;
+	height: 48px;
+	top: -370px;
+	left: 800px;
 }
 .log_1{
 	background: transparent url(../img/logo_superman.png) no-repeat center;
@@ -222,6 +235,12 @@ div#sup_1{
 div#sup_2{
 				-webkit-animation: 2s animSup linear;
 						animation: 2s animSup linear;
+}
+div#meta{
+	position: absolute;
+	border: 1px solid red;
+	width: 960px;
+	height: 30px;
 }
 .her2{
 	background: transparent url(../img/bat_1.png) no-repeat;
