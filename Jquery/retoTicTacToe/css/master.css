@@ -15,12 +15,21 @@ section#screen1{
 }
 
 header figure#title{
-	background: #aae3f1 url(../imgs/title.png) no-repeat center center;
 	width: 600px;
 	height: 80px;
 	margin: 20px auto;
 }
-
+figure.tic{
+	background: #aae3f1 url(../imgs/title.png) no-repeat center center;
+}
+#screen3 figure h1{
+	background: #aae3f1;
+	font-size: 5rem;
+	text-align: center;
+}
+span#winn{
+	text-transform: capitalize;
+}
 main {
 	margin: 0px auto;
 	width: 600px;
@@ -136,7 +145,6 @@ main button{
 	height: 140px;
 	margin-bottom:4px;
 }
-
 main button:hover{
 	background-color: #176381;
 	cursor: pointer;

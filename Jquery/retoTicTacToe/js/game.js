@@ -11,6 +11,7 @@ $(document).ready(function(){
 // Animacion Inicial
 	$('section#screen2').hide();
 	$('section#screen3').hide();
+	$('section#screen3 h1').hide();
 	$('section#screen1').animate({'left': '-1000px'},0)
 						.animate({'left': '40px'},500)
 						.animate({'left': '0px'},200);
@@ -89,11 +90,16 @@ $('#boxes').on('click', 'button', function(){
 		($('button#box3').hasClass('player2') && $('button#box6').hasClass('player2') && $('button#box9').hasClass('player2')) ||
 		($('button#box1').hasClass('player2') && $('button#box5').hasClass('player2') && $('button#box9').hasClass('player2')) ||
 		($('button#box3').hasClass('player2') && $('button#box5').hasClass('player2') && $('button#box7').hasClass('player2'))	){
-		alert('Ha ganado '+$nplayer2);
+		$('#winn').text($nplayer2);
+		$('section#screen3 h1').show();
+		$('section#screen3 figure').removeClass('tic');
+		$('section#screen3 figure').addClass('tac');
+		$('button.player2').css('background', 'green url(imgs/'+$splayer2+'.png) no-repeat center center');
+		$('#playAgain').text('Play Again...');
 		ganarJuego();
 		// window.location.replace('');
 	}
-	else if(($('button#box1').hasClass('player2') && $('button#box2').hasClass('player2') && $('button#box3').hasClass('player2'))||
+	else if(($('button#box1').hasClass('player1') && $('button#box2').hasClass('player1') && $('button#box3').hasClass('player1'))||
 		($('button#box4').hasClass('player1') && $('button#box5').hasClass('player1') && $('button#box6').hasClass('player1')) ||
 		($('button#box7').hasClass('player1') && $('button#box8').hasClass('player1') && $('button#box9').hasClass('player1')) ||
 		($('button#box1').hasClass('player1') && $('button#box4').hasClass('player1') && $('button#box7').hasClass('player1')) ||
@@ -101,7 +107,12 @@ $('#boxes').on('click', 'button', function(){
 		($('button#box3').hasClass('player1') && $('button#box6').hasClass('player1') && $('button#box9').hasClass('player1')) ||
 		($('button#box1').hasClass('player1') && $('button#box5').hasClass('player1') && $('button#box9').hasClass('player1')) ||
 		($('button#box3').hasClass('player1') && $('button#box5').hasClass('player1') && $('button#box7').hasClass('player1')) ){
-		alert('Ha ganado '+$nplayer1);
+		$('button.player1').css('background', 'green url(imgs/'+$splayer1+'.png) no-repeat center center');
+		$('#playAgain').text('Play Again...');
+		$('section#screen3 h1').show();
+		$('section#screen3 figure').removeClass('tic');
+		$('section#screen3 figure').addClass('tac');
+		$('#winn').text($nplayer1);
 		ganarJuego();
 	}
 });
