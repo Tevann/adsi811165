@@ -43,6 +43,7 @@ div#hero {
 	top: 590px;
 	width: 70px;
 	-webkit-transition: all 0.1s;
+	/*border: 1px solid red;*/
 
 /*		-webkit-animation: 1s Hero ease-in-out infinite;
 				animation: 1s Hero ease-in-out infinite;*/
@@ -57,8 +58,12 @@ div#pl1{
 	width: 154px;
 	height: 72px;
 	position: relative;
-	top: 295px;
+	top: 300px;
 	left: -154px;
+	z-index: 2;
+	/*border: 1px solid red;*/
+
+
 }
 div#pl4,
 div#pl5,
@@ -189,19 +194,6 @@ div#big_tit {
 	-webkit-animation: 1s animTit ease-in-out infinite;
 			animation: 1s animTit ease-in-out infinite;
 }
-div#adsi {
-	position: absolute;
-	top: 380px;
-	left: 440px;
-	font-family:  Tahoma;
-	font-size: 6rem;
-	text-align: center;
-	color: white;
-	z-index: 10;
-
-	-webkit-animation: 1s animTit ease-in-out infinite;
-			animation: 1s animTit ease-in-out infinite;
-}
 div.contenido{
 	position: relative;
 	top: 500px;
@@ -283,7 +275,7 @@ div#her{
 	z-index: 5;
 }
 div.mn_1{
-	background: transparent url(../img/menu_1.png) no-repeat;
+	background: #87ceeb url(../img/menu_1.png) no-repeat;
 	width: 278px;
 	height: 110px;
 	position: absolute;
@@ -305,20 +297,8 @@ div.mn_2{
 		-webkit-animation: 2s btns linear;
 				animation: 2s btns linear;
 }
-div.mn_3{
-	background: transparent url(../img/menu_3.png) no-repeat;
-	width: 278px;
-	height: 110px;
-	position: absolute;
-	top: 540px;
-	cursor: pointer;
-	-webkit-transition: all 0.4s;
 
-		-webkit-animation: 3s btns linear;
-				animation: 3s btns linear;
-}
 div.mn_2 h2,
-div.mn_3 h1,
 div.mn_1 h1{
 	font-size: 3rem;
 	font-family: Tahoma;
@@ -335,19 +315,7 @@ button#mn{
 	background-color: #1E90FF;
 	cursor: pointer;
 }
-div.mn_1:hover{
-	background: transparent url(../img/menu_1.2.png) no-repeat;
-	color: black;
-}
-div.mn_2:hover{
-	background: transparent url(../img/menu_2.1.png) no-repeat;
-	color: black;
-	width: 321px;
-}
-div.mn_3:hover{
-	background: transparent url(../img/menu_3.1.png) no-repeat;
-	color: black;
-}
+
 div#sup_1:hover{
 	background: transparent url(../img/bat_1.1.png) no-repeat;
 	z-index: 3;

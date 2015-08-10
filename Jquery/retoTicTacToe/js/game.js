@@ -6,12 +6,13 @@ $(document).ready(function(){
 	$splayer1 = null;
 	$splayer2 = null;
 	$countslt = 1;
-	// $winner = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+	$winner = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
 // Animacion Inicial
+	$('article#error').hide();
 	$('section#screen2').hide();
 	$('section#screen3').hide();
-	$('section#screen3 h1').hide();
+	$('section#screen3 h1').hide()
 	$('section#screen1').animate({'left': '-1000px'},0)
 						.animate({'left': '40px'},500)
 						.animate({'left': '0px'},200);
@@ -37,7 +38,7 @@ $(document).ready(function(){
 		$('#screen2 #'+$splayer1).addClass('selected');
 	},500);
 		}else{
-			alert('Ingresa un nombre de Usuario,\nseleccione un simbolo.');
+			$('article#error').show();
 		}
 	});
 
@@ -56,7 +57,7 @@ $('footer').on('click', '#next2', function(event){
 														 $('#turno_jug').text($nplayer1);
 		}, 500);
 	}else{
-		alert('Ingresa un nombre de Usuario,\nseleccione un simbolo.');
+		$('article#error').show();
 	}
 });
 
@@ -65,57 +66,42 @@ $('footer').on('click', '#reset', function(){
 	event.preventDefault();
 	window.location.replace('');
 })
+
+// Cerrar alerta
+$('section#alerts').on('click', 'article', function(event){
+	event.preventDefault();
+	$(this).fadeOut('slow');
+})
+$('section#alerts').on('click', 'a', function(event){
+	event.preventDefault();
+	$(this).parent().fadeOut('slow');
+})
 // Click en cajas
 $('#boxes').on('click', 'button', function(){
 	event.preventDefault();
-	$('#turno_jug').text($nplayer1);
 	if($countslt%2==0){
-		$('#turno_jug').text($nplayer2);
-		$(this).css('background', '#2085ac url(imgs/'+$splayer2+'.png) no-repeat center center');
-		$(this).addClass('player2');
-	}else{
 		$('#turno_jug').text($nplayer1);
+		$(this).css('background', '#2085ac url(imgs/'+$splayer2+'.png) no-repeat center center');
+		$(this).addClass('p2');
+	}else{
+		$('#turno_jug').text($nplayer2);
 		$(this).css('background', '#2085ac url(imgs/'+$splayer1+'.png) no-repeat center center');
-		$(this).addClass('player1');
+		$(this).addClass('p1');
 	}
 	$(this).addClass('activebox');
 	$(this).attr('disabled', 'disabled');
 	$countslt++;
 
-	if(($('button#box1').hasClass('player2') && $('button#box2').hasClass('player2') && $('button#box3').hasClass('player2'))||
-		($('button#box4').hasClass('player2') && $('button#box5').hasClass('player2') && $('button#box6').hasClass('player2')) ||
-		($('button#box7').hasClass('player2') && $('button#box8').hasClass('player2') && $('button#box9').hasClass('player2')) ||
-		($('button#box1').hasClass('player2') && $('button#box4').hasClass('player2') && $('button#box7').hasClass('player2')) ||
-		($('button#box2').hasClass('player2') && $('button#box5').hasClass('player2') && $('button#box8').hasClass('player2')) ||
-		($('button#box3').hasClass('player2') && $('button#box6').hasClass('player2') && $('button#box9').hasClass('player2')) ||
-		($('button#box1').hasClass('player2') && $('button#box5').hasClass('player2') && $('button#box9').hasClass('player2')) ||
-		($('button#box3').hasClass('player2') && $('button#box5').hasClass('player2') && $('button#box7').hasClass('player2'))	){
-		$('#winn').text($nplayer2);
-		$('section#screen3 h1').show();
-		$('section#screen3 figure').removeClass('tic');
-		$('section#screen3 figure').addClass('tac');
-		$('button.player2').css('background', 'green url(imgs/'+$splayer2+'.png) no-repeat center center');
-		$('#playAgain').text('Play Again...');
-		ganarJuego();
-		// window.location.replace('');
-	}
-	else if(($('button#box1').hasClass('player1') && $('button#box2').hasClass('player1') && $('button#box3').hasClass('player1'))||
-		($('button#box4').hasClass('player1') && $('button#box5').hasClass('player1') && $('button#box6').hasClass('player1')) ||
-		($('button#box7').hasClass('player1') && $('button#box8').hasClass('player1') && $('button#box9').hasClass('player1')) ||
-		($('button#box1').hasClass('player1') && $('button#box4').hasClass('player1') && $('button#box7').hasClass('player1')) ||
-		($('button#box2').hasClass('player1') && $('button#box5').hasClass('player1') && $('button#box8').hasClass('player1')) ||
-		($('button#box3').hasClass('player1') && $('button#box6').hasClass('player1') && $('button#box9').hasClass('player1')) ||
-		($('button#box1').hasClass('player1') && $('button#box5').hasClass('player1') && $('button#box9').hasClass('player1')) ||
-		($('button#box3').hasClass('player1') && $('button#box5').hasClass('player1') && $('button#box7').hasClass('player1')) ){
-		$('button.player1').css('background', 'green url(imgs/'+$splayer1+'.png) no-repeat center center');
-		$('#playAgain').text('Play Again...');
-		$('section#screen3 h1').show();
-		$('section#screen3 figure').removeClass('tic');
-		$('section#screen3 figure').addClass('tac');
-		$('#winn').text($nplayer1);
-		ganarJuego();
-	}
+	checkGame();
 });
+
+function checkGame(p1, p2){
+	for ($i = 0; $winner.length; $i++) {
+		for ($j = 0; $j < 3; $j++) {
+			console.log($winner[$i][$j]);
+		}
+	}
+}
 
 function ganarJuego(){
 	$('nav#boxes button').attr('disabled', 'disabled');
