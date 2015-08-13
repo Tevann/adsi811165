@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>T I C   T A C   T O E</title>
+	<title>T I C  - T A C - T O E</title>
 	<link rel="stylesheet" href="css/master.css">
 	<link rel="stylesheet" href="css/fonts.css">
 </head>
@@ -10,7 +10,7 @@
 <!-- Screen 1 -->
 	<section id="screen1">
 	<header>
-		<figure id="title" class="tic"></figure>
+		<figure id="title"></figure>
 	</header>
 	<main>
 		<label> Nickname Player 1: </label>
@@ -32,7 +32,7 @@
 <!-- Screen 2 -->
 	<section id="screen2">
 	<header>
-		<figure id="title" class="tic"></figure>
+		<figure id="title"></figure>
 	</header>
 	<main>
 		<label> Nickname Player 2: </label>
@@ -55,7 +55,7 @@
 	<!-- Screen 3 -->
 	<section id="screen3">
 		<header>
-			<figure id="title" class="tic"><h1>The winner is: <span id="winn"></span></h1></figure>
+			<figure id="title"></figure>
 		</header>
 			<main>
 				<nav id="boxes">
@@ -69,16 +69,17 @@
 				<button id="box8"></button>
 				<button id="box9"></button>
 				</nav>
-				<h2>Turn of: <span id="turno_jug"></span></h2>
+				<!-- <h2>Turn of: <span id="turno_jug"></span></h2> -->
 			</main>
 			<footer>
-				<button id="reset"><span id="playAgain">Reset...</span></button>
+				<button class="po">Turn of: <span id="turno_jug"></span></button>
+				<button id="reset" class="po"><span id="playAgain">Reset...</span></button>
 			</footer>
 	</section>
 
 <section id="alerts">
 	<article id="error">
-		<h1>Por favor ingrese un nombre de usuario y Seleccione un simbolo</h1>
+		<h1>Por favor ingrese un nombre de usuario y<br> Seleccione un simbolo</h1>
 		<h2>Intentelo de nuevo</h2>
 		<a href="javascript();">X</a>
 	</article>

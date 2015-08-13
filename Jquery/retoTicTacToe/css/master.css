@@ -15,20 +15,10 @@ section#screen1{
 }
 
 header figure#title{
+	background: #aae3f1 url(../imgs/title.png) no-repeat center center;
 	width: 600px;
 	height: 80px;
 	margin: 20px auto;
-}
-figure.tic{
-	background: #aae3f1 url(../imgs/title.png) no-repeat center center;
-}
-#screen3 figure h1{
-	background: #aae3f1;
-	font-size: 5rem;
-	text-align: center;
-}
-span#winn{
-	text-transform: capitalize;
 }
 main {
 	margin: 0px auto;
@@ -119,7 +109,7 @@ footer{
 }
 footer button{
 	background-color: #fff;
-	display: block;
+	/*display: block;*/
 	width: inherit;
 	height: 50px;
 	font-size: 3rem;
@@ -129,6 +119,11 @@ footer button{
 	border: none;
 
 	transition: 0.5s all;
+}
+footer button.po{
+	width: 290px;
+	/*margin: 0px 310px;*/
+	display: inline-block;
 }
 button:hover{
 	text-indent: 40px;
@@ -149,7 +144,9 @@ main button:hover{
 	background-color: #176381;
 	cursor: pointer;
 }
-
+span#turno_jug{
+	text-transform: capitalize;
+}
 section#alerts{
 	font-family: 'Roboto-light';
 }
@@ -171,14 +168,18 @@ article#error h1{
 	text-align: center;
 	margin-top: 25%;
 	font-size: 2.5rem;
-	border-bottom: 2px solid #ba3737;
-	padding-bottom: 10px;
+	border: 2px solid #ba3737;
+	padding: 10px;
+	width: 50%;
 	color: #666;
+	margin: 320px auto;
 }
 article#error h2{
-	color: #999;
+	position: relative;
+	color: #777;
 	text-align: center;
 	font-size: 2rem;
+	top: -300px;
 }
 section#alerts a:link,
 section#alerts a:active{
