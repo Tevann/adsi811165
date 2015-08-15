@@ -8,6 +8,7 @@ body{
 	font-family: 'Roboto-light';
 }
 
+section#screen0,
 section#screen3,
 section#screen2,
 section#screen1{
@@ -30,6 +31,12 @@ main label {
 	font-size: 3rem;
 	margin: 10px 0px;
 }
+section#screen0 main label{
+	text-align: center;
+}
+section#screen0 main {
+	margin: 50px auto;
+}
 main input{
 	text-transform: capitalize;
 	display: block;
@@ -44,11 +51,27 @@ main input{
 	font-family: 'Roboto-light';
 }
 
+main nav#gamemenu,
 main nav#symbols{
-	margin: 0pc auto;
+	margin: 0px auto;
 	width: 400px;
 	list-style: none;
 }
+main nav#gamemenu li:hover{
+	cursor: pointer;
+}
+main nav#gamemenu li{
+	width: 400px;
+	height: 100px;
+	margin: 15px 0px;
+}
+main nav#gamemenu li#mode1{
+	background: #2aa7d6 url(../imgs/btn1.png) no-repeat center center;
+}
+main nav#gamemenu li#mode2{
+	background: #2aa7d6 url(../imgs/btn2.png) no-repeat center center;
+}
+
 main nav#symbols li{
 	width: 120px;
 	height: 120px;
@@ -91,6 +114,14 @@ main nav#symbols li:hover{
 }
 .active{
 	background-color: #0f4c62 !important;
+	animation: 0.5s animSimbol ease-in-out 1;
+}
+.activemode1{
+	background: url(../imgs/btn1a.png) no-repeat center center !important;
+	animation: 0.5s animSimbol ease-in-out 1;
+}
+.activemode2{
+	background: url(../imgs/btn2a.png) no-repeat center center !important;
 	animation: 0.5s animSimbol ease-in-out 1;
 }
 .activebox{

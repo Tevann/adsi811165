@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Encadenamiento jQuery</title>
+  <style>
+      section#pacman{
+        background-color: #daba14;
+        border-radius: 100px;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        position: relative;
+      }
+      article{
+        background-color: #35361a;
+        border-radius: 20px;
+        height: 80px;
+        width: 40px;
+        position: relative;
+      }
+      article.eyel{
+        top: 40px;
+        left: 40px;
+      }
+      article.eyer{
+        top: -40px;
+        left: 120px;
+      }
+  </style>
+</head>
+<body>
+  <h1>Encadenamiento jQuery</h1>
+  <hr>
+<section id="pacman">
+  <article class="eyel"></article>
+  <article class="eyer"></article>
+</section>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+      $(document).ready(function(){
+          $('#pacman').animate({'left':'-200px'},500)
+                      .animate({'left':'200px'},500)
+                      .animate({'left':'-200px'},500)
+                      .fadeOut('slow')
+                      .animate({'left':'200px'},500)
+                      .fadeIn('slow')
+                      .animate({'width':'500px'},500)
+                      .animate({'left':'-200px'},2500)
+                      .animate({'width': '200px'},500)
+                      .animate({'height':'400px'},500)
+                      .animate({'height':'200px'},1800)
+
+        $eye = setInterval(function(){
+            $('.eyer').animate({'top':'210px'},500);
+            $('.eyel').animate({'top':'290px'},500);
+        },6800);
+
+        $eye1 = setInterval(function(){
+            $('.eyer').animate({'top':'-50px'},500);
+            $('.eyel').animate({'top':'30px'},500);
+        },7800);
+        
+      });
+  </script>
+</body>
+</html>

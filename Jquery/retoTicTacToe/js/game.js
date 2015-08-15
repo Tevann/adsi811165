@@ -6,13 +6,15 @@ $(document).ready(function(){
 	$splayer1 = null;
 	$splayer2 = null;
 	$countslt = 1;
+	$btnsbox = $('nav#boxes button');
 	$winner = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
 // Animacion Inicial
 	$('article#error').hide();
+	$('section#screen1').hide();
 	$('section#screen2').hide();
 	$('section#screen3').hide();
-	$('section#screen1').animate({'left': '-1000px'},0)
+	$('section#screen0').animate({'left': '-1000px'},0)
 						.animate({'left': '40px'},500)
 						.animate({'left': '0px'},200);
 
@@ -21,6 +23,35 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('nav#symbols li').removeClass('active');
 		$(this).addClass('active');
+	});
+
+	// Activar Modo de juego
+	$('main').on('click', 'nav#gamemenu li', function(event){
+		event.preventDefault();
+		$('nav#gamemenu li').removeClass('activemode1 activemode2');
+		if($(this).attr('id') == 'mode1'){
+			$(this).addClass('activemode1');
+		}else{
+			$(this).addClass('activemode2');
+		}
+	});
+
+	//Validar Datos Pantalla 0
+	$('footer').on('click', '#next0', function(event){
+		event.preventDefault();
+		if($('#screen0 nav#gamemenu li').hasClass('activemode1') || $('#screen0 nav#gamemenu li').hasClass('activemode2')) {
+
+			$('#screen0').animate({'left':'-1000px'},250).hide(250);
+		setTimeout(function(){
+		$('section#screen1').show().animate({'left': '-1000px'},0)
+						   		   .animate({'left': '40px'},500)
+								   .animate({'left': '0px'},200);
+		$('#screen2 #'+$splayer1).addClass('selected');
+	},500);
+		}else{
+			$('article#error h1').text('Por favor seleccione un modo de juego.');
+			$('article#error').show();
+		}
 	});
 
 	//Validar Datos Pantalla 1
@@ -81,16 +112,17 @@ $('#boxes').on('click', 'button', function(){
 	if($countslt%2==0){
 		$('#turno_jug').text($nplayer1);
 		$(this).css('background', '#2085ac url(imgs/'+$splayer2+'.png) no-repeat center center');
-		$(this).addClass('pl2');
+		$(this).addClass('p2');
+		checkGame('p2', $nplayer2);
 	}else{
 		$('#turno_jug').text($nplayer2);
 		$(this).css('background', '#2085ac url(imgs/'+$splayer1+'.png) no-repeat center center');
-		$(this).addClass('pl1');
+		$(this).addClass('p1');
+		checkGame('p1', $nplayer2);
 	}
 	$(this).addClass('activebox');
 	$(this).attr('disabled', 'disabled');
 	$countslt++;
-	checkGame();
 });
 
 //Hover de los botones cuando entra
@@ -101,7 +133,7 @@ $('#boxes').on('mouseenter', 'button', function(){
 			$(this).css('background', '#2085ac url(imgs/'+$splayer1+'.png) no-repeat center center');
 		}
 })
-// Hove de los Botones cuando sale
+// Hover de los Botones cuando sale
 $('#boxes').on('mouseleave', 'button', function(){
 		if($countslt%2==0){
 			$(this).css('background', '#2085ac');
@@ -110,170 +142,43 @@ $('#boxes').on('mouseleave', 'button', function(){
 		}
 })
 
-function checkGame(){
-	//Jugadas Ganadoras del Player 2--------------
-	if($('button#box1').hasClass('pl2') && $('button#box2').hasClass('pl2') && $('button#box3').hasClass('pl2')){
-		$('button#box1').css('background-color','green');
-		$('button#box2').css('background-color','green');
-		$('button#box3').css('background-color','green');
-		$('span#playAgain').text("¿Volver a Jugar?");
-		ganadorPlayer2();
-		ganarJuego();
-	}
-	else if ($('button#box4').hasClass('pl2') && $('button#box5').hasClass('pl2') && $('button#box6').hasClass('pl2')){
-		$('button#box4').css('background-color','green');
-		$('button#box5').css('background-color','green');
-		$('button#box6').css('background-color','green');
-		$('span#playAgain').text("¿Volver a Jugar?");
-		ganadorPlayer2();
-		ganarJuego();
-	}
-	else if ($('button#box7').hasClass('pl2') && $('button#box8').hasClass('pl2') && $('button#box9').hasClass('pl2')){
-		$('button#box7').css('background-color','green');
-		$('button#box8').css('background-color','green');
-		$('button#box9').css('background-color','green');
-		alert('ha ganado');
-		ganarJuego();
-	}
-	else if ($('button#box1').hasClass('pl2') && $('button#box4').hasClass('pl2') && $('button#box7').hasClass('pl2')){
-		$('button#box1').css('background-color','green');
-		$('button#box4').css('background-color','green');
-		$('button#box7').css('background-color','green');
-		$('span#playAgain').text("¿Volver a Jugar?");
-		ganadorPlayer2();
-		ganarJuego();
-	}
-	else if ($('button#box2').hasClass('pl2') && $('button#box5').hasClass('pl2') && $('button#box8').hasClass('pl2')){
-		$('button#box2').css('background-color','green');
-		$('button#box5').css('background-color','green');
-		$('button#box8').css('background-color','green');
-		$('span#playAgain').text("¿Volver a Jugar?");
-		ganadorPlayer2();
-		ganarJuego();
-	}
-	else if ($('button#box3').hasClass('pl2') && $('button#box6').hasClass('pl2') && $('button#box9').hasClass('pl2')){
-		$('button#box3').css('background-color','green');
-		$('button#box6').css('background-color','green');
-		$('button#box9').css('background-color','green');
-		$('span#playAgain').text("¿Volver a Jugar?");
-		ganadorPlayer2();
-		ganarJuego();
-	}
-	else if ($('button#box1').hasClass('pl2') && $('button#box5').hasClass('pl2') && $('button#box9').hasClass('pl2')){
-		$('button#box1').css('background-color','green');
-		$('button#box5').css('background-color','green');
-		$('button#box9').css('background-color','green');
-		$('span#playAgain').text("¿Volver a Jugar?");
-		ganadorPlayer2();
-		ganarJuego();
-	}
-	else if ($('button#box3').hasClass('pl2') && $('button#box5').hasClass('pl2') && $('button#box7').hasClass('pl2')){
-		$('button#box3').css('background-color','green');
-		$('button#box5').css('background-color','green');
-		$('button#box7').css('background-color','green');
-		$('span#playAgain').text("¿Volver a Jugar?");
-		ganadorPlayer2();
-		ganarJuego();
-	}
-//Jugadas Ganadoras del Player 1--------------
-else if($('button#box1').hasClass('pl1') && $('button#box2').hasClass('pl1') && $('button#box3').hasClass('pl1')){
-	$('button#box1').css('background-color','green');
-	$('button#box2').css('background-color','green');
-	$('button#box3').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-else if ($('button#box4').hasClass('pl1') && $('button#box5').hasClass('pl1') && $('button#box6').hasClass('pl1')){
-	$('button#box4').css('background-color','green');
-	$('button#box5').css('background-color','green');
-	$('button#box6').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-else if ($('button#box7').hasClass('pl1') && $('button#box8').hasClass('pl1') && $('button#box9').hasClass('pl1')){
-	$('button#box7').css('background-color','green');
-	$('button#box8').css('background-color','green');
-	$('button#box9').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-else if ($('button#box1').hasClass('pl1') && $('button#box4').hasClass('pl1') && $('button#box7').hasClass('pl1')){
-	$('button#box1').css('background-color','green');
-	$('button#box4').css('background-color','green');
-	$('button#box7').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-else if ($('button#box2').hasClass('pl1') && $('button#box5').hasClass('pl1') && $('button#box8').hasClass('pl1')){
-	$('button#box2').css('background-color','green');
-	$('button#box5').css('background-color','green');
-	$('button#box8').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-else if ($('button#box3').hasClass('pl1') && $('button#box6').hasClass('pl1') && $('button#box9').hasClass('pl1')){
-	$('button#box3').css('background-color','green');
-	$('button#box6').css('background-color','green');
-	$('button#box9').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-else if ($('button#box1').hasClass('pl1') && $('button#box5').hasClass('pl1') && $('button#box9').hasClass('pl1')){
-	$('button#box1').css('background-color','green');
-	$('button#box5').css('background-color','green');
-	$('button#box9').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-else if ($('button#box3').hasClass('pl1') && $('button#box5').hasClass('pl1') && $('button#box7').hasClass('pl1')){
-	$('button#box3').css('background-color','green');
-	$('button#box5').css('background-color','green');
-	$('button#box7').css('background-color','green');
-	$('span#playAgain').text("¿Volver a Jugar?");
-	ganadorPlayer1();
-	ganarJuego();
-}
-};
+function checkGame(sp, np){
+	for (var i = 0; i < $winner.length; i++) {
+					a = $winner[i][0]
+					b = $winner[i][1]
+					c = $winner[i][2]
 
-function ganadorPlayer2(){
+				if($($btnsbox[a]).hasClass(sp) && $($btnsbox[b]).hasClass(sp)){
+							if($($btnsbox[b]).hasClass(sp) && $($btnsbox[c]).hasClass(sp)){
+								$($btnsbox[a]).css('background-color', '#2aa65f');
+								$($btnsbox[b]).css('background-color', '#2aa65f');
+								$($btnsbox[c]).css('background-color', '#2aa65f');
+								$('article#error h1').text('El ganador es: '+' '+np);
+								// $('article#winner').show();
+								ganadorPlayer(np, sp);
+								ganarGame();
+			}
+		}
+	}
+}
+
+function ganarGame(){
+	$('nav#boxes button').attr('disabled', 'disabled');
+}
+
+function ganadorPlayer(np, sp){
 	$('article#error').show();
 	$('article#error').css('background-image','url(imgs/winner.png)');
-	$('article#error h1').text('El ganador es: '+' '+$nplayer2);
 	$('article#error h2').text('');
 	$('article#error').css({'background-image':'url(imgs/winner.png)','background-color':'rgba(255,255,255, 0.8)'});
 	$('article#error h1').css('margin','290px auto');
 	$('article#error h2').css({
-		'background': '#176381 url(imgs/'+$splayer2+'.png) no-repeat center center',
+		'background': '#176381 url(imgs/'+sp+'.png) no-repeat center center',
 		'width':'90px',
 		'height':'90px',
 		'position':'relative',
 		'top':'-250px',
 		'left':'640px',
 });
-}
-function ganadorPlayer1(){
-	$('article#error').show();
-	$('article#error h1').text('El ganador es: '+' '+$nplayer1);
-	$('article#error h2').text('');
-	$('article#error').css({'background-image':'url(imgs/winner.png)','background-color':'rgba(255,255,255, 0.8)'});
-	$('article#error h1').css('margin','290px auto');
-	$('article#error h2').css({
-		'background': '#176381 url(imgs/'+$splayer1+'.png) no-repeat center center',
-		'width':'90px',
-		'height':'90px',
-		'position':'relative',
-		'top':'-250px',
-		'left':'640px',
-});
-}
-function ganarJuego(){
-	$('nav#boxes button').attr('disabled', 'disabled');
 }
 });

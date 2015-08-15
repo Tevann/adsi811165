@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funcion CallBack jQuery</title>
+  <style>
+      body{
+        font: 16px Tahoma;
+      }
+      p{
+        border: 10px solid silver;
+        margin: 0px auto;
+        padding: 20px;
+        width: 400px;
+        position: relative;
+      }
+  </style>
+</head>
+<body>
+  <h1>Funcion CallBack jQuery</h1>
+  <hr>
+  <p id="p1">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis blanditiis ipsum porro deleniti recusandae iure reprehenderit atque. Fugit adipisci, ipsum tenetur magni! Corporis enim, aliquid, obcaecati fugit earum facilis consectetur!
+  </p>
+  <button id="mostrar">Mostrar</button>
+  <button id="ocultar">Ocultar</button>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('p').hide();
+      $('#ocultar').hide();
+
+      $('button#mostrar').on('click', function(){
+          $('p').show(2000, function(){
+              $('p').show().animate({'left': '0px'},250).show(250);
+                alert('el parrafo esta vivo');
+                $('#ocultar').show();
+                $('#mostrar').hide();
+            })
+        });
+
+
+        $('button#ocultar').on('click', function(){
+          $('p').hide(2000,function(){
+            $('p').hide().animate({'left':'0px'},250).hide(250);
+              alert('el parrafo ha desaparecido');
+              $('#mostrar').show();
+              $('#ocultar').hide();
+          })
+          });
+
+    });
+  </script>
+</body>
+</html>

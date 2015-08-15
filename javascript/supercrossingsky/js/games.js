@@ -41,6 +41,7 @@ var pos7  =  600;
 var post;
 var posl;
 var level_sig = new Number();
+var level_end = new Number();
 
 var tcr1;
 var tcr2;
@@ -138,6 +139,9 @@ function moveSuper() {
           post -= 74;
           hero.style.top = post+'px';
           level_sig++;
+          level_end++;
+          console.log('level: '+level_sig)
+          console.log('level 3: '+level_end)
           // console.log(level);
           }
       }
@@ -152,17 +156,26 @@ function moveSuper() {
           post += 74;
           hero.style.top = post+'px';
           level_sig--;
+          level_end--;
+          console.log('level: '+level_sig)
+          console.log('level 3: '+level_end)
+
           // console.log(level);
         }
       }
       if(level_sig == 8){
         nextLevel();
         level = 2;
+        level_end = 8;
       }
       if(level == 2){
         if(hero.offsetTop == 294 && hero.offsetLeft == 800){ // left=730 left=870
           salud4.style.display = 'none';
+          newLive();
       }
+    }
+    if(level_end === 16){
+      finalLevel();
     }
   }
 
@@ -318,6 +331,14 @@ function dieSuper(){
   }
 }
 
+function newLive(){
+  var nhearts  = document.querySelectorAll('li.heart');
+  var nh = nhearts.length;
+  nh++;
+  for (var i = 0; i < nhearts.length; i++) {
+    lifetime.appendChild(salud1);
+  }
+}
 function stopGame(){
   pos1  = -160;
   pos2  = -160;
@@ -340,13 +361,19 @@ function nextLevel(){
   reset_move();
   sound();
 }
-
+function finalLevel(){
+  alert('Level 3');
+  indica_level.innerHTML = '3';
+  reset_move();
+  sound();
+}
 function resetGame(){
-  alert('Game Over');
+  alert('Game Over');+
   window.location.replace('');
 }
 function reset_move(){
   level_sig = 0;
+  level_end = 8;
 }
 function clock(){
   cont++;

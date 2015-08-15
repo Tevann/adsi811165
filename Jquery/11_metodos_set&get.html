@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Métodos SET jQuery</title>
+  <style>
+      html { font-size: 62.5%; }
+      body {
+        background:-webkit-linear-gradient(#e66919,#c8832b);
+        font: 2rem Tahoma;
+        min-height: 646px;
+      }
+      h1,h3{
+        font-weight: normal;
+      }
+      fieldset{
+        width: 600px;
+        margin: 20px auto;
+        border: none;
+        background-color: #e68725;
+        padding: 10px;
+      }
+      h1, h3, h4,div{
+        color: #eca34d;
+      }
+      fieldset h3,
+      fieldset div{
+        background-color: rgb(235, 122, 19);
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      fieldset legend h4{
+        font-size: 4rem;
+      }
+      fieldset input,
+      fieldset button{
+        display: block;
+        width: 580px;
+        font: 1.4rem Tahoma;
+        outline: none;
+        padding: 10px;
+        border: none;
+      }
+      fieldset button{
+        margin-top: 10px;
+        display: inline;
+        background-color: #d2ae15;
+        width: 296px;
+        cursor: pointer;
+      }
+      fieldset button:hover{
+        background-color: rgba(0,0,0,0.2);
+      }
+  </style>
+</head>
+<body>
+  <h1>Métodos SET jQuery</h1>
+  <hr>
+  <!-- TEXTO -->
+  <fieldset>
+    <legend><h4>TEXTO</h4></legend>
+      <h3 id="titulo">lorem Ipsum Dolor</h3>
+      <input type="text" id="texto">
+      <button id="btn1">Asignar (SET)</button>
+      <button id="btn2">Obtener (GET)</button>
+  </fieldset>
+  <!-- HTML -->
+  <fieldset>
+    <legend><h4>HTML</h4></legend>
+      <div id="contenido">Content</div>
+      <input type="text" id="html">
+      <button id="btn3">Asignar (SET)</button>
+      <button id="btn4">Obtener (GET)</button>
+  </fieldset>
+  <!-- ATTR -->
+  <fieldset>
+    <legend><h4>ATTR</h4></legend>
+      <iframe src="https://player.vimeo.com/video/13062178" width="600" height="371" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <input type="text" id="atributo">
+      <button id="btn5">Asignar (SET)</button>
+      <button id="btn6">Obtener (GET)</button>
+  </fieldset>
+  <!-- VAL -->
+  <fieldset>
+    <legend><h4>VAL</h4></legend>
+      <input type="text" id="fondo" value="#fff" readonly>
+      <input type="color" id="color">
+      <button id="btn7">Asignar (SET)</button>
+      <button id="btn8">Obtener (GET)</button>
+  </fieldset>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      //TEXTO (SET)
+      $('#btn1').click(function(){
+        if($('#texto').val().length > 0){
+          $('#titulo').text($('#texto').val());
+          $('#texto').val('');
+        }
+      })
+      //TEXTO (GET)
+      $('#btn2').click(function(){
+        alert($('#titulo').text());
+      })
+      //HTML (SET)
+      $('#btn3').click(function(){
+        if($('#html').val().length > 0){
+          $('#contenido').html($('#html').val());
+          $('#html').val('');
+        }
+      })
+      //HTML (GET)
+      $('#btn4').click(function(){
+        alert($('#contenido').html());
+      })
+      //ATTR (SET)
+      $('#btn5').click(function(){
+        if($('#atributo').val().length > 0){
+          $('iframe').attr('src', $('#atributo').val());
+          $('#atributo').val('');
+        }
+      })
+      //ATTR (GET)
+      $('#btn6').click(function(){
+        alert($('iframe').attr('src'));
+      })
+      //VAL (SET)
+      $('#btn7').click(function(){
+        if($('#color').val().length > 0){
+          $('#fondo').css('background', $('#color').val());
+          $('#fondo').val($('#color').val());
+          $('#color').val('');
+        }
+      })
+      //VAL (GET)
+      $('#btn8').click(function(){
+        alert($('#fondo').val());
+      })
+    });
+
+  </script>
+</body>
+</html>
