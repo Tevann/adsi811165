@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manipuación DOM (append/prepend)</title>
+  <style>
+    ul#lista li{
+      background: transparent url(imgs/alucard_2.png) no-repeat center center;
+      height: 200px;
+      width: 170px;
+      background-size: contain;
+      background-position: right;
+      display: inline-block;
+      border: 10px solid red;
+      font: 4em Tahoma;
+      text-align: left;
+      color: white;
+      margin-left: -10px;
+    }
+    ul#lista li span{
+      background-color: red;
+      display: block;
+      width: 40px;
+      height: 80px;
+    }
+    button{
+      border: none;
+      background-color: red;
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Manipuación DOM (append/prepend)</h1>
+  <hr>
+  <button id="btnIni">Agregar Inicio</button>
+  <button id="btnFin">Agregar Final</button>
+  <ul id=lista>
+  </ul>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+      $(document).ready(function(){
+          $cont = 1;
+          $('#btnIni').click(function(){
+            for (var i = 0; i < 10; i++) {
+            $('ul#lista').prepend('<li><span>'+$cont+'</span></li>');
+            $('li').first().hide().fadeIn(2000);
+            $cont++;
+            
+}
+$cont++;
+
+          })
+          $('#btnFin').click(function(){
+            $('ul#lista').append('<li><span>'+$cont+'</span></li>');
+            $('li').last().hide().fadeIn(2000);
+            $cont++;
+          })
+      });
+  </script>
+</body>
+</html>

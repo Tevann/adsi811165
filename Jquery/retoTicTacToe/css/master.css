@@ -1,11 +1,11 @@
 html{ font-size: 62.5%; }
 
 body{
-	background-color: #2aa7d6;
+	background-color: #424242;
 	padding: 0px;
 	margin: 0px;
 	font-size: 1.6rem;
-	font-family: 'Roboto-light';
+	font-family: 'monster';
 }
 
 section#screen0,
@@ -16,7 +16,7 @@ section#screen1{
 }
 
 header figure#title{
-	background: #aae3f1 url(../imgs/title.png) no-repeat center center;
+	background: #424242 url(../imgs/title_2.png) no-repeat center center;
 	width: 600px;
 	height: 80px;
 	margin: 20px auto;
@@ -42,13 +42,13 @@ main input{
 	display: block;
 	width: 600px;
 	height: 50px;
-	color: #092630;
+	color: #fff;
 	outline: none;
 	text-indent: 20px;
 	font-size: 2rem;
-	background-color: #2085ac;
+	background-color: #400000;
 	border: none;
-	font-family: 'Roboto-light';
+	font-family: 'monster';
 }
 
 main nav#gamemenu,
@@ -66,10 +66,10 @@ main nav#gamemenu li{
 	margin: 15px 0px;
 }
 main nav#gamemenu li#mode1{
-	background: #2aa7d6 url(../imgs/btn1.png) no-repeat center center;
+	background: #400000 url(../imgs/btn1.png) no-repeat center center;
 }
 main nav#gamemenu li#mode2{
-	background: #2aa7d6 url(../imgs/btn2.png) no-repeat center center;
+	background: #400000 url(../imgs/btn2.png) no-repeat center center;
 }
 
 main nav#symbols li{
@@ -84,27 +84,27 @@ main nav#symbols li{
 }
 
 main nav#symbols li#symbol1{
-	background: #2085ac url(../imgs/symbol1.png) no-repeat center center;
-	background-size: 80%;
+	background: #400000 url(../imgs/symbol1.png) no-repeat center center;
+	background-size: 70%;
 }
 main nav#symbols li#symbol2{
-	background: #2085ac url(../imgs/symbol2.png) no-repeat center center;
+	background: #400000 url(../imgs/symbol2.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol3{
-	background: #2085ac url(../imgs/symbol3.png) no-repeat center center;
+	background: #400000 url(../imgs/symbol3.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol4{
-	background: #2085ac url(../imgs/symbol4.png) no-repeat center center;
+	background: #400000 url(../imgs/symbol4.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol5{
-	background: #2085ac url(../imgs/symbol5.png) no-repeat center center;
+	background: #400000 url(../imgs/symbol5.png) no-repeat center center;
 	background-size: 80%;
 }
 main nav#symbols li#symbol6{
-	background: #2085ac url(../imgs/symbol6.png) no-repeat center center;
+	background: #400000 url(../imgs/symbol6.png) no-repeat center center;
 	background-size: 80%;
 }
 
@@ -113,7 +113,7 @@ main nav#symbols li:hover{
 	background-size: 100% !important;
 }
 .active{
-	background-color: #0f4c62 !important;
+	background-color: #63121D !important;
 	animation: 0.5s animSimbol ease-in-out 1;
 }
 .activemode1{
@@ -144,8 +144,8 @@ footer button{
 	width: inherit;
 	height: 50px;
 	font-size: 3rem;
-	color: #2e85ac;
-	font-family: 'Roboto-Light';
+	color: #400000;
+	font-family: 'monster';
 	margin: 10px auto;
 	border: none;
 
@@ -166,7 +166,7 @@ main nav#boxes{
 }
 main button{
 	border: none;
-	background-color: #2085ac;
+	background-color: #400000;
 	width: 140px;
 	height: 140px;
 	margin-bottom:4px;
@@ -179,15 +179,15 @@ span#turno_jug{
 	text-transform: capitalize;
 }
 section#alerts{
-	font-family: 'Roboto-light';
+	font-family: 'monster';
 }
 article#error{
 	position: fixed;
-	background-color: rgba(255,255,255, 0.5);
-	background-image: url(../imgs/alert.png);
+	background-color: rgba(255,255,255, 0.8);
+	background-image: url(../imgs/alert_1.png);
 	background-repeat: no-repeat;
 	background-position: center 25%;
-	background-size: 12%;
+	background-size: 20%;
 	left: 0px;
 	top: 0px;
 	width: 100%;
@@ -199,15 +199,15 @@ article#error h1{
 	text-align: center;
 	margin-top: 25%;
 	font-size: 2.5rem;
-	border: 2px solid #ba3737;
+	border-bottom: 2px solid #400000;
 	padding: 10px;
 	width: 50%;
-	color: #666;
+	color: #400000;
 	margin: 320px auto;
 }
 article#error h2{
 	position: relative;
-	color: #777;
+	color: #4A0000;
 	text-align: center;
 	font-size: 2rem;
 	top: -300px;

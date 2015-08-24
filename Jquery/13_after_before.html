@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>After / Before jQuery</title>
+  <style>
+    html { font-size: 62.5%; }
+    body {
+      background: #19af24;
+      color: white;
+      font: 1.6rem Helvetica;
+    }
+    section#main{
+      padding: 20px;
+      margin: 40px auto;
+      width: 280px;
+    }
+    section#main h1{
+      background-color: #118a19;
+      padding: 10px;
+      text-align: center;
+    }
+    section#main button {
+      width: 137px;
+      padding: 10px;
+      color: white;
+      background-color: #748082;
+      border: none;
+      outline: none;
+    }
+    section#main button:hover{
+      background-color: #118a19;
+      cursor: pointer;
+    }
+    .redondear{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    }
+    article.bike{
+      background-color: #118a19;
+      background-image: url(imgs/kawasaki.png);
+      background-size: contain;
+      width: 200px;
+      /*position: absolute;
+      left: 580px;*/
+      height: 200px;
+      margin: 20px auto;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    section#orden{
+      width: 200px;
+      margin: 0px auto;
+      text-align: center;
+    }
+    .animar{
+      -webkit-animation: .5s animBike ease-in-out 1;
+    }
+    @-webkit-keyframes animBike{
+      0%{
+        opacity: 0;
+        -webkit-transform: scale(0) rotateY(-190deg);
+      }
+      80%{
+        opacity: 1;
+        -webkit-transform: scale(1) rotateY(0deg);
+      }
+      90%{
+        opacity: 0.3;
+        -webkit-transform: scale(1.3) rotateY(0deg);
+      }
+      95%{
+        opacity: 1;
+        -webkit-transform: scale(0.6) rotateY(0deg);
+      }
+      100%{
+        opacity: 1;
+        -webkit-transform: scale(1) rotateY(0deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="main">
+      <h1 class="redondear">After / Before jQuery</h1>
+      <button id="btnBefore" class="redondear"> Adicionar Antes</button>
+      <button id="btnAfter" class="redondear"> Adicionar Despues</button>
+</section>
+<section id="orden">
+  <article class="animar bike"></article>
+</section>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $wd = 200;
+        //After
+        $('#btnAfter').click(function(){
+            $('article.bike:last').after("<article class='animar bike'></article>");
+            $('section#orden').width($wd);
+            $wd = $wd+200;
+            check($wd);
+        })
+        // Before
+        $('#btnBefore').click(function(){
+            $('article.bike:first').before("<article class='animar bike'></article>");
+            $('section#orden').width($wd);
+            $wd = $wd+200;
+            check($wd);
+        })
+
+        function check($wd){
+            if($wd < 1000){
+              $('section#orden').width($wd);
+            }
+        }
+    })
+  </script>
+</body>
+</html>

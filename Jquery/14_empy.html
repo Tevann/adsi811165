@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remove / Empty jQuery</title>
+  <style>
+    html { font-size: 62.5%; }
+    body {
+      background-color: #047d81;
+      color: #90dfe2;
+      font: 1.8rem Helvetica;
+    }
+    fieldset {
+      border: none;
+      margin: 20px auto;
+      padding: 10px;
+      width: 400px;
+    }
+    legend {
+      background-color: #055254;
+      padding: 20px;
+      text-transform: uppercase;
+      width: 400px;
+    }
+    input[type=text],
+    button {
+      border: none;
+      display: block;
+      font: 1.6rem Helvetica;
+      outline: none;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+    input[type=text] {
+      width: 400px;
+    }
+    button {
+      background-color: #2eb654;
+      color: #fff;
+      width: 440px;
+    }
+    button:hover {
+      background-color: #208b3e;
+      cursor: pointer;
+    }
+    ul#tasks {
+      margin: 10px auto;
+      padding: 0px;
+      width: 400px;
+    }
+    ul#tasks li {
+      border-bottom: 1px dotted #fff;
+      font-size: 1em;
+      list-style: none;
+      padding: 8px;
+      position: relative;
+    }
+    ul#tasks li span {
+      margin-left: 20px;
+    }
+    ul#tasks li a:link,
+    ul#tasks li a:visited {
+      background-color: #822626;
+      color: #fff;
+      padding: 4px;
+      position: absolute;
+      right: 0px;
+      text-align: center;
+      text-decoration: none;
+      width: 20px;
+    }
+    ul#tasks li a:hover {
+      background-color: #a22d2d;
+    }
+    .done {
+      text-decoration: line-through;
+      color: #aaa;
+      font-style: italic;
+    }
+    section#info{
+      margin: 10px auto;
+      width: 400px;
+      padding: 20px;
+      position: relative;
+      background-color: #055254;
+    }
+    section#info h3{
+      font-weight: normal;
+      border-bottom: 1px solid #90dfe2;
+      padding-bottom: 10px;
+      margin: 0px 0px 10px 0px;
+    }
+    button#btnEmpty{
+      display:  inline;
+      width: 150px;
+      padding: 4px;
+      background-color: #822626;
+      color: #fff;
+      position: absolute;
+      right: 20px;
+    }
+    button#btnEmpty:hover{
+      background-color: #a22d2d;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Remove / Empty jQuery</h1>
+  <hr>
+  <fieldset>
+    <legend>TODO LIST</legend>
+    <input type="text" id="task" placeholder="Ingrese Tarea">
+    <button id="btnAdd">Agregar</button>
+  </fieldset>
+
+  <section id="info">
+      <h3>Tareas</h3>
+      <span id="tasksIncomplete">3 por Realizar</span>
+      <span id="tasksCompleted">2 Realizadas</span>
+      <button id="btnEmpty">Eliminar Tareas</button>
+  </section>
+  <ul id="tasks">
+
+  </ul>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        //----
+        $cntComplete  = 0;
+        $cntCompleted = 0;
+        $('#info').hide();
+        //----
+        $('#btnAdd').click(function() {
+          $task = $('#task').val();
+          if($task.length > 4) {
+            $('#tasks').append("<li><input type='checkbox'><span>"+$task+"</span><a href='javascript:;'>x</a></li>");
+            $('#task').val('');
+            showInfo();
+          }
+        });
+        //----
+        $('#tasks').on('click', 'input[type=checkbox]', function(event) {
+          event.preventDefault();
+          $(this).parent().toggleClass('done');
+          showInfo();
+        });
+        //----
+        $('#tasks').on('click', 'a', function(event) {
+          event.preventDefault();
+          $(this).parent().slideUp(500, function() {
+            $(this).remove();
+            showInfo();
+          });
+        });
+        //-----
+        function showInfo(){
+          $cntComplete = $('#tasks li:not(.done)').length;
+          $cntCompleted = $('#tasks li.done').length;
+          $('#tasksIncomplete').text($cntComplete+' por realizar |');
+          $('#tasksCompleted').text($cntCompleted+' realizadas');
+          $('#info').fadeIn(500);
+          if ($cntComplete < 1 && $cntCompleted < 1) {
+            $('#info').fadeOut(500);
+          }
+        }
+        //----
+        $('#info').on('click', '#btnEmpty', function(){
+          event.preventDefault();
+          $('#tasks').empty();
+          showInfo();
+        })
+    });
+  </script>
+</body>
+</html>

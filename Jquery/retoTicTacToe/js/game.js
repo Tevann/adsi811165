@@ -14,9 +14,9 @@ $(document).ready(function(){
 	$('section#screen1').hide();
 	$('section#screen2').hide();
 	$('section#screen3').hide();
-	$('section#screen0').animate({'left': '-1000px'},0)
-						.animate({'left': '40px'},500)
-						.animate({'left': '0px'},200);
+	$('section#screen0').animate({'top': '-1000px'},0)
+						.animate({'top': '40px'},500)
+						.animate({'top': '0px'},200);
 
 	// Activar Simbolo Pantalla 1
 	$('main').on('click', 'nav#symbols li:not(.selected)', function(event){
@@ -41,15 +41,15 @@ $(document).ready(function(){
 		event.preventDefault();
 		if($('#screen0 nav#gamemenu li').hasClass('activemode1') || $('#screen0 nav#gamemenu li').hasClass('activemode2')) {
 
-			$('#screen0').animate({'left':'-1000px'},250).hide(250);
+			$('#screen0').animate({'top':'-1000px'},250).hide(250);
 		setTimeout(function(){
-		$('section#screen1').show().animate({'left': '-1000px'},0)
-						   		   .animate({'left': '40px'},500)
-								   .animate({'left': '0px'},200);
+		$('section#screen1').show().animate({'top': '-1000px'},0)
+						   		   .animate({'top': '40px'},500)
+								   .animate({'top': '0px'},200);
 		$('#screen2 #'+$splayer1).addClass('selected');
 	},500);
 		}else{
-			$('article#error h1').text('Por favor seleccione un modo de juego.');
+			$('article#error h1').text('Please! select a game mode');
 			$('article#error').show();
 		}
 	});
@@ -60,11 +60,11 @@ $(document).ready(function(){
 		if($('#screen1 #nickname').val().length > 0 && $('#screen1 nav#symbols li').hasClass('active')){
 			$nplayer1 = $('#screen1 #nickname').val();
 			$splayer1 = $('#screen1 nav#symbols li.active').attr('id');
-			$('#screen1').animate({'left':'-1000px'},250).hide(250);
+			$('#screen1').animate({'top':'-1000px'},250).hide(250);
 		setTimeout(function(){
-		$('section#screen2').show().animate({'left': '-1000px'},0)
-						   		   .animate({'left': '40px'},500)
-								   .animate({'left': '0px'},200);
+		$('section#screen2').show().animate({'top': '-1000px'},0)
+						   		   .animate({'top': '40px'},500)
+								   .animate({'top': '0px'},200);
 		$('#screen2 #'+$splayer1).addClass('selected');
 	},500);
 		}else{
@@ -78,12 +78,12 @@ $('footer').on('click', '#next2', function(event){
 	if($('#screen2 #nickname').val().length > 0 && $('#screen2 nav#symbols li').hasClass('active')){
 		$nplayer2 = $('#screen2 #nickname').val();
 		$splayer2 = $('#screen2 nav#symbols li.active').attr('id');
-		$('#screen2').animate({'left':'-1000px'},250).hide(250);
+		$('#screen2').animate({'top':'-1000px'},250).hide(250);
 
 	setTimeout(function(){
-	$('section#screen3').show().animate({'left': '-1000px'},0)
-									 					 .animate({'left': '40px'},500)
-								 					 	 .animate({'left': '0px'},200);
+	$('section#screen3').show().animate({'top': '-1000px'},0)
+									 					 .animate({'top': '40px'},500)
+								 					 	 .animate({'top': '0px'},200);
 														 $('#turno_jug').text($nplayer1);
 		}, 500);
 	}else{
@@ -111,12 +111,16 @@ $('#boxes').on('click', 'button', function(){
 	event.preventDefault();
 	if($countslt%2==0){
 		$('#turno_jug').text($nplayer1);
-		$(this).css('background', '#2085ac url(imgs/'+$splayer2+'.png) no-repeat center center');
+		// $(this).css('background', '#2085ac url(imgs/'+$splayer2+'.png) no-repeat center center');
+		$(this).css({'background': '#400000 url(imgs/'+$splayer2+'.png) no-repeat center center',
+									'background-size': 'contain'});
 		$(this).addClass('p2');
 		checkGame('p2', $nplayer2);
 	}else{
 		$('#turno_jug').text($nplayer2);
-		$(this).css('background', '#2085ac url(imgs/'+$splayer1+'.png) no-repeat center center');
+		//$(this).css('background', '#2085ac url(imgs/'+$splayer1+'.png) no-repeat center center');
+		$(this).css({'background': '#400000 url(imgs/'+$splayer1+'.png) no-repeat center center',
+									'background-size': 'contain'});
 		$(this).addClass('p1');
 		checkGame('p1', $nplayer2);
 	}
@@ -128,17 +132,19 @@ $('#boxes').on('click', 'button', function(){
 //Hover de los botones cuando entra
 $('#boxes').on('mouseenter', 'button', function(){
 		if($countslt%2==0){
-			$(this).css('background', '#2085ac url(imgs/'+$splayer2+'.png) no-repeat center center');
+			$(this).css({'background': '#400000 url(imgs/'+$splayer2+'.png) no-repeat center center',
+										'background-size': 'contain'});
 		}else{
-			$(this).css('background', '#2085ac url(imgs/'+$splayer1+'.png) no-repeat center center');
+			$(this).css({'background': '#400000 url(imgs/'+$splayer1+'.png) no-repeat center center',
+										'background-size': 'contain'});
 		}
 })
 // Hover de los Botones cuando sale
 $('#boxes').on('mouseleave', 'button', function(){
 		if($countslt%2==0){
-			$(this).css('background', '#2085ac');
+			$(this).css('background', '#400000');
 		}else{
-			$(this).css('background', '#2085ac');
+			$(this).css('background', '#400000');
 		}
 })
 
@@ -150,10 +156,10 @@ function checkGame(sp, np){
 
 				if($($btnsbox[a]).hasClass(sp) && $($btnsbox[b]).hasClass(sp)){
 							if($($btnsbox[b]).hasClass(sp) && $($btnsbox[c]).hasClass(sp)){
-								$($btnsbox[a]).css('background-color', '#2aa65f');
-								$($btnsbox[b]).css('background-color', '#2aa65f');
-								$($btnsbox[c]).css('background-color', '#2aa65f');
-								$('article#error h1').text('El ganador es: '+' '+np);
+								$($btnsbox[a]).css('background-color', '#63121D');
+								$($btnsbox[b]).css('background-color', '#63121D');
+								$($btnsbox[c]).css('background-color', '#63121D');
+								$('article#error h1').text('The winner is: '+' '+np);
 								// $('article#winner').show();
 								ganadorPlayer(np, sp);
 								ganarGame();
@@ -168,17 +174,10 @@ function ganarGame(){
 
 function ganadorPlayer(np, sp){
 	$('article#error').show();
-	$('article#error').css('background-image','url(imgs/winner.png)');
+	$('article#error').css('background-image','url(imgs/mount.png)');
 	$('article#error h2').text('');
-	$('article#error').css({'background-image':'url(imgs/winner.png)','background-color':'rgba(255,255,255, 0.8)'});
-	$('article#error h1').css('margin','290px auto');
-	$('article#error h2').css({
-		'background': '#176381 url(imgs/'+sp+'.png) no-repeat center center',
-		'width':'90px',
-		'height':'90px',
-		'position':'relative',
-		'top':'-250px',
-		'left':'640px',
-});
+	$('article#error').css({'background-image':'url(imgs/mount.png)','background-color':'rgba(255,255,255, 0.8)'});
+	$('article#error h1').css('margin','400px auto');
+	$('article#error h2').text('');
 }
 });

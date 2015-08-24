@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>(Next, Prev, First, Last) jQuery</title>
+  <style>
+    html{ font-size: 62.5%; }
+    body {
+      background-color: #dabc1b;
+      color: #6e5e07;
+      font: 1.6rem Tahoma;
+    }
+    h1 {
+      background-color: #e6d162;
+      border:  4px solid #6e5e07;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+      width: 800px;
+      border-radius: 100px;
+    }
+    section#characters {
+      margin: 20px auto;
+      padding: 10px;
+      width: 880px;
+    }
+    section#characters figure {
+      background-color: #e6d162;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      border: 4px solid #6e5e07;
+      display: inline-block;
+      border-radius: 100px;
+      height: 160px;
+      margin: 0px;
+      padding: 0px;
+      width: 160px;
+    }
+    section#characters figure.character1{
+        background-image: url(imgs/alucard.png);
+    }
+    section#characters figure.character2{
+        background-image: url(imgs/l_2.png);
+    }
+    section#characters figure.character3{
+        background-image: url(imgs/ryuk.png);
+    }
+    section#characters figure.character4{
+        background-image: url(imgs/deadth.png);
+    }
+    section#characters figure.character5{
+        background-image: url(imgs/l.png);
+    }
+    section#controls {
+      margin: 20px auto;
+      width: 580px;
+      padding: 20px;
+    }
+    section#controls button {
+      background-color: #6e5e07;
+      border: none;
+      color: #e6d162;
+      border-radius: 100px;
+      font: 1.6rem Tahoma;
+      padding: 10px;
+      width: 140px;
+    }
+    section#controls button:hover{
+      background-color: #524608;
+      cursor: pointer;
+    }
+    .active{
+      background-color: #524608 !important;
+      box-shadow: 0px 6px 10px 4px #524608;
+      position: relative;
+      -webkit-animation: animCt 1s ease-in-out 1;
+    }
+    @-webkit-keyframes animCt {
+      0% {
+        opacity: 1;
+        top: -10px;
+        -webkit-transform: rotateY(0deg) scale(1);
+      }
+      80% {
+        opacity: 0.8;
+        top: 0px;
+        -webkit-transform: rotateY(0deg) scale(1.2);
+      }
+      90% {
+        opacity: 0.8;
+        top: 0px;
+        -webkit-transform: rotateY(180deg) scale(1.2);
+      }
+      100% {
+        opacity: 1;
+        top: 0px;
+        -webkit-transform: rotateY(0deg) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>(Next, Prev, First, Last) jQuery</h1>
+  <section id="characters">
+    <figure class="character1"></figure>
+    <figure class="character2"></figure>
+    <figure class="character3"></figure>
+    <figure class="character4"></figure>
+    <figure class="character5"></figure>
+  </section>
+  <section id="controls">
+    <button id="btnFirst">First</button>
+    <button id="btnNext">Next</button>
+    <button id="btnPrev">Prev</button>
+    <button id="btnLast">Last</button>
+  </section>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+      $(document).ready(function(){
+        //---- First
+        $('#controls').on('click', '#btnFirst', function(){
+          removeActive();
+          $('#characters figure').first().addClass('active');
+        });
+        //---- last
+        $('#controls').on('click', '#btnLast', function(){
+          removeActive();
+          $('#characters figure').last().addClass('active');
+        });
+        //---- Next
+        $('#controls').on('click', '#btnNext', function(){
+          $ctactive = $('#characters figure.active');
+          if($ctactive.length > 0){
+            removeActive();
+            $ctactive.next().addClass('active');
+          }else {
+            $('#characters figure').first().addClass('active');
+          }
+
+
+        });
+        //---- Prev
+        $('#controls').on('click', '#btnPrev', function(){
+          $ctactive = $('#characters figure.active');
+          if($ctactive.length > 0){
+            removeActive();
+            $ctactive.prev().addClass('active');
+          }else {
+            $('#characters figure').last().addClass('active');
+          }
+        });
+        function removeActive(){
+          $('#characters figure').removeClass('active');
+        }
+
+
+      })
+  </script>
+</body>
+</html>
