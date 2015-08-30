@@ -8,6 +8,7 @@ $(document).ready(function(){
 	$countslt = 1;
 	$btnsbox = $('nav#boxes button');
 	$winner = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+	$mach = [0,1,2,3,4,5,6,7,8]
 
 // Animacion Inicial
 	$('article#error').hide();
@@ -39,7 +40,7 @@ $(document).ready(function(){
 	//Validar Datos Pantalla 0
 	$('footer').on('click', '#next0', function(event){
 		event.preventDefault();
-		if($('#screen0 nav#gamemenu li').hasClass('activemode1') || $('#screen0 nav#gamemenu li').hasClass('activemode2')) {
+		if($('#screen0 nav#gamemenu li').hasClass('activemode1')){
 
 			$('#screen0').animate({'top':'-1000px'},250).hide(250);
 		setTimeout(function(){
@@ -48,10 +49,25 @@ $(document).ready(function(){
 								   .animate({'top': '0px'},200);
 		$('#screen2 #'+$splayer1).addClass('selected');
 	},500);
-		}else{
-			$('article#error h1').text('Please! select a game mode');
-			$('article#error').show();
 		}
+		else if($('#screen0 nav#gamemenu li').hasClass('activemode2')){
+
+					$('#screen0').animate({'top':'-1000px'},250).hide(250);
+					setTimeout(function(){
+					$('section#screen2').show().animate({'top': '-1000px'},0)
+													 						.animate({'top': '40px'},500)
+												 							.animate({'top': '0px'},200);
+																			$sim = Math.floor(Math.random() * 6) + 1;
+																			$nplayer1 = "Machine";
+																			$splayer1 = $('#screen1 nav#symbols li#symbol'+$sim).addClass('active');
+																			$splayer1 = $('#screen1 nav#symbols li.active').attr('id');
+					$('#screen2 #'+$nplayer1).val();
+					$('#screen2 #'+$splayer1).addClass('selected');
+				},500);
+			}else{
+				$('article#error h1').text('Please! select a game mode');
+				$('article#error').show();
+			}
 	});
 
 	//Validar Datos Pantalla 1
@@ -111,24 +127,42 @@ $('#boxes').on('click', 'button', function(){
 	event.preventDefault();
 	if($countslt%2==0){
 		$('#turno_jug').text($nplayer1);
-		// $(this).css('background', '#2085ac url(imgs/'+$splayer2+'.png) no-repeat center center');
 		$(this).css({'background': '#400000 url(imgs/'+$splayer2+'.png) no-repeat center center',
 									'background-size': 'contain'});
 		$(this).addClass('p2');
 		checkGame('p2', $nplayer2);
 	}else{
-		$('#turno_jug').text($nplayer2);
-		//$(this).css('background', '#2085ac url(imgs/'+$splayer1+'.png) no-repeat center center');
+		if($('#screen0 nav#gamemenu li').hasClass('activemode2')){
+				PlayMachine();
+		}else{
+			$('#turno_jug').text($nplayer2);
 		$(this).css({'background': '#400000 url(imgs/'+$splayer1+'.png) no-repeat center center',
 									'background-size': 'contain'});
 		$(this).addClass('p1');
 		checkGame('p1', $nplayer2);
+	}
 	}
 	$(this).addClass('activebox');
 	$(this).attr('disabled', 'disabled');
 	$countslt++;
 });
 
+function PlayMachine(){
+	//$cuen = Math.floor(Math.random()*9);
+	for ($i=0; $i < $winner.length; $i++) {
+			//	console.log($('p1'))
+			if($('nav#boxes button#box'+$winner[$i]).hasClass('p2')){
+
+			}else{
+				$('nav#boxes button#box'+$winner[$i]).css({'background': '#400000 url(imgs/'+$splayer1+'.png) no-repeat center center',
+				 								'background-size': 'contain'});
+				$('nav#boxes button#box'+$winner[$i]).addClass('p1');
+				$('nav#boxes button#box'+$winner[$i]).addClass('activebox');
+		  	$('nav#boxes button#box'+$winner[$i]).attr('disabled', 'disabled');
+				console.log($mach[$i])
+		}
+	}
+}
 //Hover de los botones cuando entra
 $('#boxes').on('mouseenter', 'button', function(){
 		if($countslt%2==0){

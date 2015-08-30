@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clases (addClass, removeClass, toggleClass) jQuery</title>
+  <link rel="stylesheet" href="css/17_master.css">
+</head>
+<body>
+  <main id="slider">
+    <section id="slides">
+      <article class="slide1"><figure></figure></article>
+      <article class="slide2 activeSlide"><figure></figure></article>
+      <article class="slide3"><figure></figure></article>
+    </section>
+    <section id="logo"></section>
+    <nav id="controls">
+      <li></li>
+      <li class="active"></li>
+      <li></li>
+    </nav>
+  </main>
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+      $(document).ready(function(){
+        //--------------------------
+        $('.slide1, .slide3').addClass('behindSlide');
+        $szum = 3;
+
+        transitionSlides();
+
+    });
+      function transitionSlides(){
+        setInterval(function(){
+          $slideActual = $('.activeSlide');
+          $btnActual = $('.active');
+
+          if($('nav#controls li:last').hasClass('active')){
+            //---btn
+            $('li:last').removeClass('active');
+            $('li:first').addClass('active');
+            //---slide
+            $('article:last').removeClass('behindSlide, activeSlide');
+            $('article:first').addClass('activeSlide').css('z-index', +$zsum);
+          }else{
+          //---btn
+          $btnActual.removeClass('active');
+          $btnActual.next().addClass('active');
+          //--slide
+          $slideActual.removeClass('behindSlide');
+          $slideActual.next().addClass('activeSlide').css('z-index', ++$zsum);;
+        }
+        },2000);
+      }
+
+  </script>
+</body>
+</html>

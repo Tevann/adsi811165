@@ -1,0 +1,180 @@
+html { font-size: 62.5%; }
+body {
+  background-color: #5f5448;
+  color: #5f5448;
+  font: 1.6rem Helvetica;
+  font-weight: normal;
+}
+
+section.product {
+  background-color: #fff;
+  display: inline-block;
+  height: 400px;
+  margin: 20px 20px 0px 0px;
+  width: 340px;
+}
+
+section.product header {
+  background-color: #2292b2;
+  color: #fff;
+  text-align: center;
+  height: 60px;
+}
+
+section.product header h1 {
+  font-size: 3.6rem;
+  font-weight: normal;
+  line-height: 6rem;
+  margin: 0px;
+  padding: 0px;
+}
+
+section.product article {
+  width: 330px;
+  margin: 25px auto;
+}
+
+section.product article aside {
+  display: inline-block;
+  height: 220px;
+  vertical-align: top;
+  width: 160px;
+}
+
+section.product article aside figure {
+  height: 100%;
+  margin: 0px;
+  width: 100%;
+}
+
+section.product article aside figure.tshirt-base {
+  background: transparent url(../imgs/tshirt-base.png) no-repeat center center;
+  -webkit-filter: hue-rotate(0deg) saturate(0);
+          filter: hue-rotate(0deg) saturate(0);
+}
+section.product article aside figure.shoes-base {
+  background: transparent url(../imgs/shoes-base.png) no-repeat center center;
+  -webkit-filter: hue-rotate(0deg) saturate(0);
+          filter: hue-rotate(0deg) saturate(0);
+}
+section.product article aside figure.cap-base {
+  background: transparent url(../imgs/cap-base.png) no-repeat center center;
+  -webkit-filter: hue-rotate(0deg) saturate(0);
+          filter: hue-rotate(0deg) saturate(0);
+}
+
+section.product article aside figure.color1 {
+  -webkit-filter: hue-rotate(0deg);
+          filter: hue-rotate(0deg);
+}
+section.product article aside figure.color2 {
+  -webkit-filter: hue-rotate(250deg) saturate(2);
+          filter: hue-rotate(250deg) saturate(2);
+}
+section.product article aside figure.color3 {
+  -webkit-filter: hue-rotate(150deg) saturate(1);
+          filter: hue-rotate(150deg) saturate(1);
+}
+
+section.product article aside figure.color1,
+section.product article aside figure.color2,
+section.product article aside figure.color3 {
+  position: relative;
+  -webkit-animation: 0.5s animColor ease-in-out 1;
+          animation: 0.5s animColor ease-in-out 1;
+}
+
+section.product article aside h3 {
+  font-size: 2.2rem;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+section.product article aside h3.title {
+  color: #fa520c;
+}
+
+section.product article aside p {
+  text-align: justify;
+}
+
+section.product article aside nav li {
+  border: 2px solid #fff;
+  display: inline-block;
+  height: 20px;
+  list-style: none;
+  width: 20px;
+}
+section.product article aside nav li#color1 {
+  background-color: #6c9ab4
+}
+section.product article aside nav li#color2 {
+  background-color: #91c55b;
+}
+section.product article aside nav li#color3 {
+  background-color: #bb6865;
+}
+section.product article aside nav li:hover {
+  cursor: pointer;
+}
+
+section.product footer button {
+  border: none;
+  background-color: #b7e648;
+  display: block;
+  color: #5f5448;
+  font-size: 2.4rem;
+  height: 60px;
+  margin: 0px auto;
+  width: 320px ;
+}
+section.product footer button:hover {
+  cursor: pointer;
+}
+
+button,
+nav li {
+  -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+}
+button:hover,
+nav li:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+
+section.selected {
+  position: relative;
+  -webkit-filter: grayscale(1) blur(2px);
+          filter: grayscale(1) blur(2px);
+  -webkit-box-shadow: 2px 2px 6px 2px #000;
+          box-shadow: 2px 2px 6px 2px #000;
+  -webkit-animation: 0.2s animSelected ease-in 1;
+          animation: 0.2s animSelected ease-in 1;
+}
+
+
+@-webkit-keyframes animColor {
+  0% {
+    opacity: 0;
+    left: -10px;
+  }
+  100% {
+    opacity: 1;
+    left: 0px;
+  }
+}
+
+@-webkit-keyframes animSelected {
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+  100% {
+    opacity: 1;
+    top: 0px;
+  }
+}

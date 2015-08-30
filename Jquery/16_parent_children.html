@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recorrer DOM (parent, children) jQuery</title>
+  <link rel="stylesheet" href="css/16_master.css">
+</head>
+<body>
+  <main>
+    <section class="product">
+      <header>
+        <h1>T-Shirt</h1>
+      </header>
+      <article>
+        <aside>
+          <figure class='tshirt-base'></figure>
+        </aside>
+        <aside>
+          <h3 class='title'>Simple Shirt</h3>
+          <h3 class='price'>$ 25.00</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sed eos minima, quam aspernatur.
+          </p>
+          <nav>
+            <li id='color1'></li>
+            <li id='color2'></li>
+            <li id='color3'></li>
+          </nav>
+        </aside>
+      </article>
+      <footer>
+        <button>Select</button>
+      </footer>
+    </section>
+    <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+    <section class="product">
+      <header>
+        <h1>Shoes</h1>
+      </header>
+      <article>
+        <aside>
+          <figure class='shoes-base'></figure>
+        </aside>
+        <aside>
+          <h3 class='title'>Simple Shoes</h3>
+          <h3 class='price'>$ 70.00</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sed eos minima, quam aspernatur.
+          </p>
+          <nav>
+            <li id='color1'></li>
+            <li id='color2'></li>
+            <li id='color3'></li>
+          </nav>
+        </aside>
+      </article>
+      <footer>
+        <button>Select</button>
+      </footer>
+    </section>
+    <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+    <section class="product">
+      <header>
+        <h1>Cap</h1>
+      </header>
+      <article>
+        <aside>
+          <figure class='cap-base'></figure>
+        </aside>
+        <aside>
+          <h3 class='title'>Simple Cap</h3>
+          <h3 class='price'>$ 40.00</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sed eos minima, quam aspernatur.
+          </p>
+          <nav>
+            <li id='color1'></li>
+            <li id='color2'></li>
+            <li id='color3'></li>
+          </nav>
+        </aside>
+      </article>
+      <footer>
+        <button>Select</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      /* :::::::::::::::::::::::::::::::::::::::::::::: */
+      $('.product').on('click', 'nav li', function(event) {
+        event.preventDefault();
+        $color = $(this).attr('id');
+        $elem  = $(this).parent().parent().parent().children().children('figure');
+        $elem.removeClass('color1 color2 color3')
+        switch ($color) {
+          case 'color1':
+              $elem.hide().show().addClass('color1');
+              break;
+          case 'color2':
+              $elem.hide().show().addClass('color2');
+              break;
+          case 'color3':
+              $elem.hide().show().addClass('color3');
+              break;
+        }
+      });
+      /* :::::::::::::::::::::::::::::::::::::::::::::: */
+      $('.product').on('click', 'footer button', function(event) {
+        event.preventDefault();
+        $elem = $(this).parent().parent();
+        $elem.toggleClass('selected');
+        if($elem.hasClass('selected')) {
+          $(this).text('Unselect');
+        } else {
+          $(this).text('Select');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -66,10 +66,10 @@ main nav#gamemenu li{
 	margin: 15px 0px;
 }
 main nav#gamemenu li#mode1{
-	background: #400000 url(../imgs/btn1.png) no-repeat center center;
+	background: #63121D url(../imgs/btn1.png) no-repeat center center;
 }
 main nav#gamemenu li#mode2{
-	background: #400000 url(../imgs/btn2.png) no-repeat center center;
+	background: #63121D url(../imgs/btn2.png) no-repeat center center;
 }
 
 main nav#symbols li{
