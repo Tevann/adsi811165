@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/17_master.css">
 </head>
 <body>
+  <button id="btnDark">Dark-Theme</button>
   <main id="slider">
     <section id="slides">
       <article class="slide1"><figure></figure></article>
@@ -23,14 +24,23 @@
   <script>
       $(document).ready(function(){
         //--------------------------
+        $('body').on('click', '#btnDark', function(){
+          $('body').toggleClass('darkness');
+          $('button#btnDark').removeClass('Dark');
+          if($('body').hasClass('darkness')){
+            $(this).text('Light-Theme');
+            $('button#btnDark').addClass('Dark');
+           }else{
+           $(this).text('Dark-Theme');
+          }
+        })
         $('.slide1, .slide3').addClass('behindSlide');
-        $szum = 3;
-
+        $zsum = 3;
         transitionSlides();
-
+        simple();
     });
       function transitionSlides(){
-        setInterval(function(){
+        $tim = setInterval(function(){
           $slideActual = $('.activeSlide');
           $btnActual = $('.active');
 
@@ -39,19 +49,42 @@
             $('li:last').removeClass('active');
             $('li:first').addClass('active');
             //---slide
-            $('article:last').removeClass('behindSlide, activeSlide');
-            $('article:first').addClass('activeSlide').css('z-index', +$zsum);
+            $('article:last').removeClass('activeSlide');
+            $('article:first').addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
           }else{
           //---btn
           $btnActual.removeClass('active');
           $btnActual.next().addClass('active');
           //--slide
-          $slideActual.removeClass('behindSlide');
-          $slideActual.next().addClass('activeSlide').css('z-index', ++$zsum);;
+          $slideActual.removeClass('activeSlide');
+          $slideActual.next().addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
         }
         },2000);
       }
 
+function simple(){
+  $all = $('article');
+
+  $('nav#controls').on('click', 'li', function(){
+    $('article').removeClass('activeSlide');
+    $('article').removeClass('behindSlide');
+    $('li').removeClass('active');
+    $(this).addClass('active');
+    $all.addClass('behindSlide');
+    clearInterval($tim);
+
+      if($('li:first').hasClass('active')){
+        $('article:first').addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+      }
+      else if($('li:first').next().hasClass('active')){
+        $('article:first').next().addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+      }
+      else {
+        $('article:last').addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+      }
+      transitionSlides();
+  })
+}
   </script>
 </body>
 </html>

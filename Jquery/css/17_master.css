@@ -80,6 +80,7 @@ main#slider nav#controls li {
   border-radius: 44px;
   display: inline-block;
   list-style: none;
+  cursor: pointer;
 }
 
 main#slider nav#controls li.active {
@@ -87,12 +88,30 @@ main#slider nav#controls li.active {
 }
 
 main#slider section#slides article.behindSlide{
-   opacity: 0.3;
-  -webkit-transform: scale(0.7);
+  opacity: 0.3;
+ -webkit-transform: scale(0.7);
+
 }
 
 main#slider section#slides article.activeSlide {
-  top: -400px;
-  left: 0px;
-  opacity: 1;
+  -webkit-animation: 1s animSlide ease-in 1;
+          animation: 1s animSlide ease-in 1;
+}
+.darkness {
+  background: #000;
+}
+.Dark{
+  border: 1px solid white;
+  background: #000;
+  color: #fff;
+}
+@-webkit-keyframes animSlide {
+  0%{
+    opacity: 0.3;
+    -webkit-transform: scale(0.6);
+  }
+  100%{
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
 }
