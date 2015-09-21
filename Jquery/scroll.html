@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Efecto Parallax</title>
+  <style>
+    *{
+      border:0px;
+      padding: 0px;
+      margin: 0px;
+    }
+    .contenido {
+      height: 800px;
+      position: relative;
+    }
+    .fondo{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 800px;
+      background: url(imgs/back_2.png);
+    }
+    .ciudad_1{
+      z-index: 3;
+      background: url(imgs/city.png) repeat-x bottom center;
+    }
+    .ciudad{
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 500px;
+    }
+    .ciudad_2{
+      z-index: 2;
+      opacity: .4;
+      background: url(imgs/city.png)repeat-x right center;
+    }
+    .nubes{
+      position: absolute;
+      height: 200px;
+      width: 100%;
+      background: url(imgs/nubes.png)repeat-x right center;
+    }
+  </style>
+</head>
+<body>
+<div class="contenido">
+  <div class="fondo"></div>
+  <div class="nubes"></div>
+  <div class="ciudad ciudad_1"></div>
+  <div class="ciudad ciudad_2"></div>
+  <div class="estrellas estrellas_1"></div>
+  <div class="estrellas estrellas_2"></div>
+  <div class="estrellas estrellas_3"></div>
+</div>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+
+  })
+
+</script>
+</body>
+</html>

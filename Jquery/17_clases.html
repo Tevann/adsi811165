@@ -6,12 +6,14 @@
   <link rel="stylesheet" href="css/17_master.css">
 </head>
 <body>
-  <button id="btnDark">Dark-Theme</button>
+  <button id="btnDark" class="dark">Purple-Theme</button>
+  <button id="parar" class="dark">stop</button>
+  <button id="cont" class="dark">play</button>
   <main id="slider">
     <section id="slides">
-      <article class="slide1"><figure></figure></article>
-      <article class="slide2 activeSlide"><figure></figure></article>
-      <article class="slide3"><figure></figure></article>
+      <article class="slide1 izquierda"><figure></figure></article>
+      <article class="slide2 activeSlide centro"><figure></figure></article>
+      <article class="slide3 derecha"><figure></figure></article>
     </section>
     <section id="logo"></section>
     <nav id="controls">
@@ -25,15 +27,29 @@
       $(document).ready(function(){
         //--------------------------
         $('body').on('click', '#btnDark', function(){
-          $('body').toggleClass('darkness');
-          $('button#btnDark').removeClass('Dark');
-          if($('body').hasClass('darkness')){
-            $(this).text('Light-Theme');
-            $('button#btnDark').addClass('Dark');
+          $('body').toggleClass('purpless');
+          $('button#btnDark').removeClass('pur');
+          $('button#parar').removeClass('pur');
+          $('button#cont').removeClass('pur');
+          if($('body').hasClass('purpless')){
+            $(this).text('Dark-Theme');
+            $('button#btnDark').addClass('pur');
+            $('button#parar').addClass('pur');
+            $('button#cont').addClass('pur');
            }else{
-           $(this).text('Dark-Theme');
-          }
-        })
+           $(this).text('Purple-Theme');
+         }
+         });
+
+          $('#parar').click(function(){
+            clearInterval($tim);
+          });
+
+          $('#cont').click(function(){
+            transitionSlides();
+          })
+
+
         $('.slide1, .slide3').addClass('behindSlide');
         $zsum = 3;
         transitionSlides();
@@ -41,46 +57,65 @@
     });
       function transitionSlides(){
         $tim = setInterval(function(){
+          $('article').removeClass('izquierda centro derecha');
+          //$('article:first').removeClass('derecha').addClass('izquierda');
+
           $slideActual = $('.activeSlide');
           $btnActual = $('.active');
+
+          $('article:first').addClass('derecha').removeClass('centro izquierda');
+          $('article:first').next().addClass('centro').removeClass('derecha');
+          $('article:last').removeClass('derecha').addClass('centro');
 
           if($('nav#controls li:last').hasClass('active')){
             //---btn
             $('li:last').removeClass('active');
             $('li:first').addClass('active');
             //---slide
-            $('article:last').removeClass('activeSlide');
-            $('article:first').addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
-          }else{
+            $('article:last').removeClass('activeSlide centro').addClass('izquierda');
+            $('article:first').addClass('activeSlide centro').removeClass('behindSlide izquierda').css('z-index', ++$zsum);
+            $('article:first').next().removeClass('izquierda centro').addClass('derecha');
+            $('article:first').removeClass('izquierda derecha').addClass('centro');
+          } else{
           //---btn
           $btnActual.removeClass('active');
           $btnActual.next().addClass('active');
           //--slide
-          $slideActual.removeClass('activeSlide');
+          $slideActual.removeClass('activeSlide centro').addClass('izquierda');
           $slideActual.next().addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+          $('article:first').removeClass('derecha centro').addClass('izquierda');
+          $('article:first').next().removeClass('derecha').addClass('derecha');
         }
         },2000);
       }
 
 function simple(){
-  $all = $('article');
 
   $('nav#controls').on('click', 'li', function(){
-    $('article').removeClass('activeSlide');
-    $('article').removeClass('behindSlide');
+    $('article').removeClass('activeSlide behindSlide');
     $('li').removeClass('active');
     $(this).addClass('active');
-    $all.addClass('behindSlide');
+    $('article').addClass('behindSlide');
     clearInterval($tim);
 
       if($('li:first').hasClass('active')){
-        $('article:first').addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+        $('article:first').addClass('activeSlide').removeClass('behindSlide').css({'z-index': ++$zsum,
+                                                                                    'left':'0px'});
+        $('article:first').next().css('left','-150px');
+        $('article:last').css('left','150px');
       }
       else if($('li:first').next().hasClass('active')){
-        $('article:first').next().addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+        $('article:first').next().addClass('activeSlide').removeClass('behindSlide').css({'z-index': ++$zsum,
+                                                                                          'left':'0px'});
+        $('article:first').css('left','-150px');
+        $('article:last').css('left','150px');
+
       }
       else {
-        $('article:last').addClass('activeSlide').removeClass('behindSlide').css('z-index', ++$zsum);
+        $('article:last').addClass('activeSlide').removeClass('behindSlide').css({'z-index': ++$zsum,
+                                                                                  'left':'0px'});
+          $('article:first').next().css('left','150px');
+          $('article:first').css('left','-150px');
       }
       transitionSlides();
   })

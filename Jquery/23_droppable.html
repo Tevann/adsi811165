@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Droppable jQuery UI</title>
+  <style>
+  section#parent1 {
+    border: 8px solid #e60b0b;
+    background: #d64b4b;
+    width: 200px;
+    height: 300px;
+    margin-left: 800px;
+  }
+  section#parent2 {
+    border: 8px solid #0607a2;
+    background: #3f40b3;
+    width: 300px;
+    height: 300px;
+    margin-top: 10px;
+    border-radius: 50%;
+    margin-left: 750px;
+  }
+  nav li {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -500px;
+    border-style: 3px;
+    margin-top: 10px;
+    list-style: none;
+    cursor: move;
+  }
+  nav li.cua {
+    border: 3px solid #e60b0b;
+    background: #d64b4b;
+  }
+  nav li.circ {
+    border-radius: 50%;
+    border: 3px solid #0607a2;
+    background: #0607a2;
+  }
+  .ac{
+    border: 3px solid green;
+  }
+  </style>
+</head>
+<body>
+  <section id="parent1" class="sec1"></section>
+  <section id="parent2"></section>
+  <nav>
+    <li class="cua"></li>
+    <li class="cua"></li>
+    <li class="cua"></li>
+    <li class="circ"></li>
+    <li class="circ"></li>
+    <li class="circ"></li>
+  </nav>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('li').draggable({
+      revert: 'invalid',
+    });
+
+    $('#parent1').droppable({
+      accept:'.cua',
+      activeClass: '.ac',
+      });
+
+    $('#parent2').droppable({
+        accept:'.circ',
+        });
+    });
+  </script>
+</body>
+</html>

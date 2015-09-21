@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Draggable jQuery UI</title>
+  <style>
+    section#parent {
+      border: 4px dotted #cd0b0b;
+      width: 800px;
+      height: 400px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+      div#object {
+        background: #d94848 url(imgs/alucard.png) no-repeat center center;
+        background-size: contain;
+        border:10px solid #cd0b0b;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+      div#object:hover {
+        cursor: move;
+      }
+      .grande{
+        box-shadow: 2px 2px 10px 4px #000;
+        -webkit-animation: 2s animAluc ease-in-out infinite;
+              animation: 2s animAluc ease-in-out infinite;
+      }
+
+      @-webkit-keyframes animAluc {
+        0%,100%{
+          -webkit-transform: scale(1) rotateY(45deg);
+        }
+        50%{
+          -webkit-transform: scale(1.2) rotateY(-45deg);
+        }
+      }
+  </style>
+</head>
+<body>
+  <h1>Draggable jQuery UI</h1>
+  <hr>
+  <section id="parent">
+  <div id="object"></div>
+  </section>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script>
+      $(document).ready(function(){
+
+        // $('div#object').on('click', function(){
+          $('div#object').draggable({
+            containment: '#parent',
+            opacity: 0.45,
+            clone: true,
+            start: function(){
+              $('div#object').addClass('grande');
+            },
+            stop: function(){
+              $('div#object').removeClass('grande');
+            }
+          });
+        // })
+
+      });
+  </script>
+</body>
+</html>

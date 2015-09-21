@@ -1,0 +1,19 @@
+body{
+  background-color: #93764c;
+  font: 1.8rem Tahoma;
+}
+table{
+  background-color: #cea56a;
+  padding: 2%;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+th, td{
+  border: 2px solid #93764c;
+  background-color: #f9c880;
+  padding: 10px;
+}
+th{
+  background-color: #fff;
+}

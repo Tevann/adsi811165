@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax (get) jQuery</title>
+</head>
+<body>
+	<h1>Ajax (get) jQuery</h1>
+	<hr>
+
+	<select id="brands">
+		<option value="">Seleccione...</option>
+		<option value="1">Volkswagen</option>
+		<option value="2">Renault</option>
+		<option value="3">Chevrolet</option>
+		<option value="4">Nissan</option>
+	</select>
+	<br>
+	<img src="img/ajax-loader.gif" id="loader">
+	<select id="references"></select>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$('#references').hide();
+		$('#loader').hide();
+		//------------------------
+		$('body').on('change', '#brands', function(event) {
+			event.preventDefault();
+			$('#references').hide();
+			$vbrand = $(this).val();
+
+if ($vbrand.length > 0) {
+	$.get('references.php', {vb: $vbrand}, function(data, textStatus, xhr){
+		if(textStatus == 'success'){
+			$('#loader').show();
+			loadData(data);
+		}
+	});
+}else {
+	alert('Seleccione una marca! :(');
+}
+		});
+	});
+
+	function loadData(data){
+		setTimeout(function(){
+			$('#loader').hide();
+			$('#references').hide().fadeIn(1000).html(data);
+		},2000);
+	}
+	</script>
+</body>
+</html>
